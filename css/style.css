@@ -1,3 +1,10 @@
 #test {
   color: blue;
 }
+
+.mainDiv {
+  width: auto;
+  height: auto;
+  background-color: red;
+  display:block;
+}
