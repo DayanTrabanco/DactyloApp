@@ -14,14 +14,9 @@ request.onload = function() {
     data.forEach(step => {
       const card = document.createElement('div')
       card.setAttribute('class', 'card')
-
-      $('.card').click(function () {
-          window.location = 'step.html';
-      });
-
+      card.setAttribute("id", step.id)
       const h1 = document.createElement('h1')
       h1.textContent = step.name
-
       const p = document.createElement('p')
       step.description = step.description.substring(0, 300)
       p.textContent = `${step.description}`
@@ -30,6 +25,13 @@ request.onload = function() {
       card.appendChild(h1)
       card.appendChild(p)
     })
+
+    $('.card').click(function (e) {
+        window.location = 'step.html';
+        //console.log(e.originalEvent.path[1].id);
+
+        localStorage.setItem('step' , e.originalEvent.path[1].id);
+    });
   } else {
     const errorMessage = document.createElement('marquee')
     errorMessage.textContent = `Gah, it's not working!`
