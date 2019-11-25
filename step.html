@@ -1,12 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body onkeypress="myFunction(event)">
+  <div id="root">
     <h1 id="stepName">Step1</h1>
-    <a href="home.html"><button type="button" name="button">Go back</button><a/>
+    <div class="container">
+      <input id="textField" type="text" name="" value="" disabled>
+    </div>
+  </div>
+  <a href="home.html"><button type="button" name="button">Go back</button><a />
     <script src="scripts/stepScript.js"></script>
-  </body>
+    <script>
+      function myFunction(e) {
+        //alert("You pressed a key inside the input field");
+        var text = document.getElementById("textField").value;
+        //var aantalkerenGeprobeerd;
+        //if(text[0] === )
+
+        var keynum;
+        if (window.event) { // IE
+          keynum = e.keyCode;
+        } else if (e.which) { // Netscape/Firefox/Opera
+          keynum = e.which;
+        }
+        if(text[0] === String.fromCharCode(keynum)) {
+          alert("it is correct");
+        } else {
+          alert("it isn't correct");
+        }
+      }
+    </script>
+
+</body>
+
 </html>
