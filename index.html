@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>DactyloKD</title>
+  <link rel="shortcut icon" type="image/x-icon" href="images/logo.png" />
   <link rel="stylesheet" type="text/css" href="css/index.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -11,13 +12,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body onclick="myFunction(event)" onkeypress="myFunction(event)">
 
 
   <div class="context">
     <h1>DactyloKD</h1>
     <footer>Made by Katrien & Dayan</footer>
-    <a href="home.html"><p>Get Started</p></a>
   </div>
 
   <div class="area">
@@ -34,6 +34,12 @@
       <li></li>
     </ul>
   </div>
+  <script>
+    function myFunction(e) {
+      //alert("You pressed a key inside the input field");
+      window.location = 'home.html';
+    }
+  </script>
 
 </body>
 

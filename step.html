@@ -3,32 +3,45 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>DactyloKD</title>
+  <link rel="shortcut icon" type="image/x-icon" href="images/logo.png" />
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/step.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </head>
 
 <body onkeypress="myFunction(event)">
   <div id="root">
     <h1 id="stepName">Step1</h1>
     <div class="container">
-      <input id="textField" type="text" name="" value="" disabled>
+      <div class="row">
+        <div class="col-lg-4 col-lg-offset-4">
+          <div class="input-group">
+            <input id="textField" type="text" class="textField" disabled/>
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
     </div>
   </div>
   <a href="home.html"><button type="button" name="button">Go back</button><a />
-    <script src="scripts/stepScript.js"></script>
+  <script src="scripts/stepScript.js"></script>
     <script>
       function myFunction(e) {
         //alert("You pressed a key inside the input field");
         var text = document.getElementById("textField").value;
         //var aantalkerenGeprobeerd;
         //if(text[0] === )
-
         var keynum;
         if (window.event) { // IE
           keynum = e.keyCode;
         } else if (e.which) { // Netscape/Firefox/Opera
           keynum = e.which;
         }
-        if(text[0] === String.fromCharCode(keynum)) {
+        if (text[0] === String.fromCharCode(keynum)) {
           alert("it is correct");
         } else {
           alert("it isn't correct");
