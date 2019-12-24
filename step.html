@@ -24,11 +24,13 @@
   <a href="home.html"><button type="button" name="button">Go back</button><a />
     <script src="scripts/stepScript.js"></script>
     <script>
+      var correct = 0;
+      var errors = 0;
+
       function myFunction(e) {
         //alert("You pressed a key inside the input field");
         var text = document.getElementById("textField").value;
-        var correct = 0;
-        var errors = 0;
+
         var textLength = document.getElementById("textField").value.length;
         //var aantalkerenGeprobeerd;
         //if(text[0] === )
@@ -38,18 +40,18 @@
         } else if (e.which) { // Netscape/Firefox/Opera
           keynum = e.which;
         }
-        if (text.length > 0) {
-          if (text[0] === String.fromCharCode(keynum)) {
-            //document.getElementById("textField").value.replace(/^/,'');
-            text = text.replace(text[0], '')
-            correct++;
-            document.getElementById("textField").value = text;
-          } else {
-            errors++;
-            alert("it isn't correct");
-          }
+
+        if (text[0] === String.fromCharCode(keynum)) {
+          //document.getElementById("textField").value.replace(/^/,'');
+          text = text.replace(text[0], '')
+          correct++;
+          document.getElementById("textField").value = text;
         } else {
-          //alert("Errors:" + errors + " & correct first try: " + correct + "on a string of :" + textLength);
+          errors++;
+          alert("it isn't correct");
+        }
+        if (text.length < 1) {
+          alert("Errors:" + errors + " & correct first try: " + correct + "on a string of :" + textLength);
         }
       }
     </script>

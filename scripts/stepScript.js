@@ -4,9 +4,6 @@ const app = document.getElementById('root')
 
 const container = document.createElement('div')
 container.setAttribute('class', 'container')
-
-console.log(localStorage.getItem('step'));
-
 document.getElementById("stepName").innerHTML = "Step" + currentStep;
 
 var letters = [" "];
@@ -19,11 +16,11 @@ request.onload = function() {
   var data = JSON.parse(this.response)
   if (request.status >= 200 && request.status < 400) {
     data.forEach(step => {
-      console.log(step.letter);
       letters.push(step.letter);
     })
-    for(var i = 0; i < 200; i++) {
+    for(var i = 0; i < 10; i++) {
       var randomNumber = letters[Math.floor(Math.random() * 3)];
+      //Like this we won't get multiple spaces next to each other
       if(stepString[i-1] === " " && randomNumber === " ") {
         i--;
       } else {
