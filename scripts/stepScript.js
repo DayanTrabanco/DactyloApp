@@ -23,11 +23,12 @@ request.onload = function() {
       letters.push(step.letter);
     })
     for(var i = 0; i < 200; i++) {
-      if(stepString[i] === " " && letters[Math.floor(Math.random() * 3)]) {
+      var randomNumber = letters[Math.floor(Math.random() * 3)];
+      if(stepString[i-1] === " " && randomNumber === " ") {
         i--;
       } else {
-      stepString += letters[Math.floor(Math.random() * 3)];
-    }
+      stepString += randomNumber;
+      }
     }
     document.getElementById("textField").value = stepString;
   } else {

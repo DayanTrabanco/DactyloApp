@@ -17,22 +17,19 @@
 <body onkeypress="myFunction(event)">
   <div id="root">
     <h1 id="stepName">Step1</h1>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-lg-offset-4">
-          <div class="input-group">
-            <input id="textField" type="text" class="textField" disabled/>
-          </div><!-- /input-group -->
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
+    <div class="Input">
+      <input type="text" id="textField" class="Input-text" disabled>
     </div>
   </div>
   <a href="home.html"><button type="button" name="button">Go back</button><a />
-  <script src="scripts/stepScript.js"></script>
+    <script src="scripts/stepScript.js"></script>
     <script>
       function myFunction(e) {
         //alert("You pressed a key inside the input field");
         var text = document.getElementById("textField").value;
+        var correct = 0;
+        var errors = 0;
+        var textLength = document.getElementById("textField").value.length;
         //var aantalkerenGeprobeerd;
         //if(text[0] === )
         var keynum;
@@ -41,10 +38,18 @@
         } else if (e.which) { // Netscape/Firefox/Opera
           keynum = e.which;
         }
-        if (text[0] === String.fromCharCode(keynum)) {
-          alert("it is correct");
+        if (text.length > 0) {
+          if (text[0] === String.fromCharCode(keynum)) {
+            //document.getElementById("textField").value.replace(/^/,'');
+            text = text.replace(text[0], '')
+            correct++;
+            document.getElementById("textField").value = text;
+          } else {
+            errors++;
+            alert("it isn't correct");
+          }
         } else {
-          alert("it isn't correct");
+          //alert("Errors:" + errors + " & correct first try: " + correct + "on a string of :" + textLength);
         }
       }
     </script>
