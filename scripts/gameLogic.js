@@ -1,7 +1,7 @@
 var correct = 0;
 var errors = 0;
 
-function myFunction(e) {
+function keyClicked(e) {
   //alert("You pressed a key inside the input field");
   var text = document.getElementById("textField").value;
 
@@ -20,11 +20,19 @@ function myFunction(e) {
     text = text.replace(text[0], '')
     correct++;
     document.getElementById("textField").value = text;
+    document.getElementById("textField").style.color = "Black";
   } else {
     errors++;
-    alert("it isn't correct");
+    document.getElementById("textField").style.color = "red";
+    document.getElementById("textField").classList.add('error');
+
+    setTimeout(function() {
+        document.getElementById("textField").classList.remove('error');
+    }, 300);
   }
   if (text.length < 1) {
     alert("Errors:" + errors + " & correct first try: " + correct + "on a string of :" + textLength);
+    window.location = 'home.html';
   }
+  //
 }
