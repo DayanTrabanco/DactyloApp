@@ -25,17 +25,12 @@ body {
   font-size: 50px;
 }
 
-.context footer {
+.context p {
   text-align: center;
   color: #fff;
   font-size: 10px;
 }
 
-.context p {
-  text-align: center;
-  color: #fff;
-  font-size: 50px;
-}
 .context a {
 
 }
@@ -162,4 +157,5 @@ body {
   padding:10px;
   border-radius: 4px;
   cursor: pointer;
+  z-index: 1;
 }
