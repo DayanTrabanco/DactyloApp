@@ -48,6 +48,7 @@ p {
   border-radius: 12px;
   overflow: hidden;
   transition: all .2s linear;
+  cursor: pointer;
 }
 
 .card:hover {
