@@ -16,6 +16,7 @@ body {
   width: 100%;
   position: absolute;
   top: 50vh;
+  text-align: center;
 }
 
 .context h1 {
@@ -36,7 +37,7 @@ body {
   font-size: 50px;
 }
 .context a {
-  
+
 }
 
 .area {
@@ -153,4 +154,12 @@ body {
     opacity: 0;
     border-radius: 50%;
   }
+}
+
+.start-btn {
+  position: relative;
+  margin-top: 10px;
+  padding:10px;
+  border-radius: 4px;
+  cursor: pointer;
 }
