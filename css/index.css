@@ -801,6 +801,18 @@ a.login-link:hover{
   color: #B5FB98;
 }
 
-.content-right{
+.content-right {
   justify-content: flex-end;
+}
+
+.login-btn {
+    background: #ffffff;
+    padding: 8px 20px !important;
+    border-radius: 20px;
+    color: #084f8e !important;
+    margin-left: 10px;
+}
+
+.login-btn:hover {
+  color: #B5FB98 !important;
 }
