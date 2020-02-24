@@ -15,19 +15,18 @@
 </head>
 
 <body onkeypress="keyClicked(event)" width="100%" height="100%">
-  <div class="content"> <!-- id id="root" -->
+  <div class="content">
+    <!-- id id="root" -->
     <h1 id="stepName"></h1>
-    <div class="Input">
-      <input type="text" id="textField" class="Input-text" disabled>
-        <span></span>
-    </input>
-      <br/>
-      <a href="home.html"><button type="button" name="button">Go back</button><a />
+    <div id="input" class="Input">
+      <!-- here will the spans be created in the script -->
     </div>
+    <br />
+    <a href="home.html"><button type="button" name="button">Go back</button><a />
   </div>
-    <script src="scripts/stepScript.js"></script>
-    <script src="scripts/gameLogic.js"></script>
-    <script src="scripts/keyboardLogic.js"></script>
 </body>
+<script src="scripts/stepScript.js"></script>
+<script src="scripts/keyboardLogic.js"></script>
+<script src="scripts/gameLogic.js"></script>
 
 </html>

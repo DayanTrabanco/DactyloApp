@@ -3,7 +3,12 @@ var errors = 0;
 
 function keyClicked(e) {
   //alert("You pressed a key inside the input field");
+  // it will give the text of the span
+  var text2 = document.getElementById("letter_1");
+  console.log(text2);
   var text = document.getElementById("textField").value;
+
+
 
   var textLength = document.getElementById("textField").value.length;
   //var aantalkerenGeprobeerd;
