@@ -1,0 +1,40 @@
+#nav{
+	z-index: 1000;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+/*	width: 100%;
+	padding: 20px;*/
+	transition: .2s linear all;
+}
+
+#nav.sticky{
+	z-index: 1000;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	background: rgba(38, 47, 53, .95);
+}
+
+#nav #links{
+	padding-top: 20px;
+	padding-right: 20px;
+}
+
+.home-nav {
+	border: none;
+	background: none;
+}
+
+.navbar-homepage > li > a{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.navbar-default .navbar-nav .navbar-homepage>li>a:hover {
+    color: #333;
+    background-color: blue;
+}
