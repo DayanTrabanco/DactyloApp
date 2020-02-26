@@ -13,10 +13,22 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="scripts/nav.js"></script>
-  <script src="scripts/loginLogic.js"></script>
+
 </head>
 
 <body>
+  <nav class="navbar navbar-expand-lg bg-trans">
+    <a class="navbar-brand" href="index.html">DactyloKD</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse content-right" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link login-btn" href="#" data-target="#login" data-toggle="modal">Login</a>
+      </div>
+    </div>
+  </nav>
   <!--Here comes the nav bar-->
   <div id="nav-placeholder"></div>
   <!-- Login form triggered by login button -->
@@ -29,7 +41,7 @@
           <form>
             <input type="text" name="username" class="username form-control" placeholder="Username" />
             <input type="password" name="password" class="password form-control" placeholder="password" />
-            <input class="login btn" type="submit" value="Login" />
+            <button type="button" name="button" class="start-btn" onclick="submit()">Login</button>
           </form>
         </div>
       </div>
@@ -39,7 +51,7 @@
   <div class="context">
     <h1>Dactylo_KD</h1>
     <p>Made by Katrien & Dayan</p>
-    <a href="home.html"><button type="button" name="button" class="start-btn">Get started</button></a>
+    <a href="#"><button type="button" name="button" class="start-btn" onclick="submit()">Get started</button></a>
   </div>
   <div class="area">
     <ul class="circles">
@@ -57,4 +69,5 @@
   </div>
 </body>
 <!-- Will be used for all the logic of the login form -->
+<script src="scripts/loginLogic.js"></script>
 </html>
