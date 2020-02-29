@@ -38,7 +38,8 @@ function keyClicked(e) {
     //document.getElementById("textField").style.color = "Black";
   } else {
     errors++;
-    document.getElementById("letter_" + currentSpan).style.color = "Red";
+    document.getElementById("letter_" + currentSpan).style.background = "pink";
+    document.getElementById("letter_" + currentSpan).style.color = "darkred";
     document.getElementById("letter_" + currentSpan).style.border.bottom = "1px solid Red";
     //document.getElementById("letter_" + currentSpan).classList.add('error');
 
