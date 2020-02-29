@@ -808,11 +808,13 @@ a.login-link:hover{
 .login-btn {
     background: #ffffff;
     padding: 8px 20px !important;
-    border-radius: 20px;
+    border-radius: 1.2rem;
     color: #084f8e !important;
     margin-left: 10px;
+    font-weight: 700;
 }
 
 .login-btn:hover {
-  color: #B5FB98 !important;
+  
+    box-shadow: inset 0 0 0 1px #5dfc71;
 }

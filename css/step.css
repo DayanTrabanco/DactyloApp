@@ -178,12 +178,26 @@ html {
 }
 
 .letterStyle {
-  font-size: 25px;
-  color: Black;
+  font-size: 45px;
+  color: #757575;
   margin-right: 5px;
-  border-bottom: 1px solid Black;
+  width: 20px;
+    display: inline-block;
+    margin-top: 20px;
 }
 .Input {
   position: center;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(100% - 500px)
+}
+
+.Input span:first-child {
+  font-size: 45px;
+    color: #757575;
+    margin-right: 5px;
+    border-bottom: 3px solid #0a6bf9;
+    width: 20px;
+    display: inline-block;
 }

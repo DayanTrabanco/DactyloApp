@@ -11,7 +11,7 @@
 /*Modal*/
 h4 {
   font-weight: bold;
-  color: #fff;
+  color: #16284a;
 }
 
 .close {
@@ -21,16 +21,10 @@ h4 {
 
 .modal-content {
   font-weight: bold;
-  background: linear-gradient(to right, #8f94fb, #084f8e);
 }
 
 .form-control {
   margin: 1em 0;
-}
-
-.form-control:hover, .form-control:focus {
-  box-shadow: none;
-  border-color: #fff;
 }
 
 .username, .password {
