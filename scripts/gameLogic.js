@@ -1,6 +1,10 @@
+$(document).ready(function() {
+
+});
+
 var correct = 0;
 var errors = 0;
-var currentLength = 100;
+var currentLength = 20;
 
 function keyClicked(e) {
   //alert("You pressed a key inside the input field");
@@ -19,19 +23,23 @@ function keyClicked(e) {
   var keynum;
   if (window.event) { // IE
     keynum = e.keyCode;
+    /*if(keynum === 32) {
+      keynum = " ";
+    } */
   } else if (e.which) { // Netscape/Firefox/Opera
     keynum = e.which;
   }
-
+  console.log("the pressed key" + "'" + String.fromCharCode(keynum).trim() + "'");
+  console.log("the correct key needed" + "'" + document.getElementById("letter_" + currentSpan).innerText + "'");
   console.log("curren" + currentSpan);
   console.log("currentLength" + currentLength);
-  if (document.getElementById("letter_" + currentSpan).innerText === String.fromCharCode(keynum)) {
+  if (document.getElementById("letter_" + currentSpan).innerText === String.fromCharCode(keynum).trim()) {
     //document.getElementById("textField").value.replace(/^/,'');
     //text = text.replace(text[0], '')
     currentLength--;
     correct++;
     var span = document.getElementById("letter_" + currentSpan);
-    $('span[id^="letter_'+ currentSpan + '"]').remove();
+    $('span[id^="letter_' + currentSpan + '"]').remove();
 
     //span.parentNode.removeChild(span)
     //document.getElementById("textField").value = text;

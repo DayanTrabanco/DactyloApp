@@ -12,7 +12,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="scripts/nav.js"></script>
+  <!--<script src="scripts/nav.js"></script>-->
 
 </head>
 
@@ -30,7 +30,7 @@
     </div>
   </nav>
   <!--Here comes the nav bar-->
-  <div id="nav-placeholder"></div>
+  <!--<div id="nav-placeholder"></div> -->
   <!-- Login form triggered by login button -->
   <div id="login" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -38,10 +38,10 @@
         <div class="modal-body">
           <button data-dismiss="modal" class="close">&times;</button>
           <h4>Login</h4>
-          <form>
+          <form method="post">
             <input id="username" type="text" name="username" class="username form-control" placeholder="Username" />
             <input id="password" type="password" name="password" class="password form-control" placeholder="password" />
-            <button type="button" name="button" class="login-btn" onclick="submit()">Login</button>
+            <button id="submitBtn" type="submit" name="button" class="login-btn">Login</button>
           </form>
         </div>
       </div>
@@ -51,7 +51,7 @@
   <div class="context">
     <h1>Dactylo_KD</h1>
     <p>Made by Katrien & Dayan</p>
-    <a href="home.html"><button type="button" name="button" class="start-btn">Get started</button></a>
+    <a href="home.html"><button type="button" name="button" class="start-btn" onclick="submit()">Get started</button></a>
   </div>
   <div class="area">
     <ul class="circles">
@@ -67,7 +67,9 @@
       <li></li>
     </ul>
   </div>
+  <!-- Will be used for all the logic of the login form -->
+  <script src="scripts/loginLogic.js"></script>
 </body>
-<!-- Will be used for all the logic of the login form -->
-<script src="scripts/loginLogic.js"></script>
+
+
 </html>

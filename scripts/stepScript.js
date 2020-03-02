@@ -1,3 +1,7 @@
+$(document).ready(function() {
+
+});
+
 var currentStep = localStorage.getItem('step');
 
 const app = document.getElementById('root')
@@ -21,7 +25,7 @@ request.onload = function() {
     data.forEach(step => {
       letters.push(step.letter);
     })
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 20; i++) {
       // random using lenth array because sometimes it can be more than 3
       var randomLetter = letters[Math.floor(Math.random() * letters.length)];
       //Like this we won't get multiple spaces next to each other
@@ -43,5 +47,4 @@ request.onload = function() {
     //app.appendChild(errorMessage)
   }
 }
-
-request.send()
+request.send();
