@@ -7,6 +7,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="images/logo.png" />
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/nav.css">
+  <link rel="stylesheet" type="text/css" href="css/login.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -27,10 +28,29 @@
       </div>
     </div>
   </nav>
+
+  <!-- Login form triggered by login button -->
+  <div id="login" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button data-dismiss="modal" class="close">&times;</button>
+          <h4>Login</h4>
+          <form method="post">
+            <input id="username" type="text" name="username" class="username form-control" placeholder="Username" />
+            <input id="password" type="password" name="password" class="password form-control" placeholder="password" />
+            <input type="checkbox" value="lsRememberMe" id="rememberMe"> <label for="rememberMe">Remember me</label>
+            <button id="submitBtn" type="submit" name="button" class="login-btn">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
   <div id="root">
     <div class="container"></div>
   </div>
   <script src="scripts/cardScript.js"></script>
+  <script src="scripts/loginLogic.js"></script>
 </body>
 
 </html>
