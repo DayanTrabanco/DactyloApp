@@ -1,3 +1,22 @@
+.get_started{
+	cursor: pointer;
+}
+
+.get-started-btn{
+	margin-top: 25px;
+	background: white;
+	border: 0px;
+	color: #084f8e;
+	width: 220px;
+}
+
+.get-started-btn:hover, .get-started-btn:active, .get-started-btn:focus{
+	background: white !important;
+	box-shadow: 0 0 10px #B5FB98;
+	color: black !important;
+}
+
+
 #nav{
 	z-index: 1000;
 	position: absolute;
@@ -24,17 +43,52 @@
 	padding-right: 20px;
 }
 
-.home-nav {
-	border: none;
-	background: none;
+
+
+#logo{
+	font-family: "Montserrat";
+	color: white;
+	font-weight: 700;
+	font-size: 25px;
+	padding-top: 13px;
 }
 
-.navbar-homepage > li > a{
-	padding-top: 5px;
-	padding-bottom: 5px;
+#links, h1{font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif; letter-spacing:0px;}
+#links{font-size: 15px;font-weight: auto;font-weight: 400;}
+
+#links{
+	position: absolute;
+	top: 5px;
+	right: 0px;
 }
 
-.navbar-default .navbar-nav .navbar-homepage>li>a:hover {
-    color: #333;
-    background-color: blue;
+a.login-link{
+	background: white;
+	padding: 8px 20px;
+	border-radius: 20px;
+	color: black !important;
+}
+
+a.login-link:hover{
+	background: #eee;
+	text-decoration: none;
+}
+
+#links ul{ list-style: none; }
+#links > ul > li{ list-style: none; display: inline-block; }
+#links.homepage > ul > li > a{ color:white; cursor: pointer; margin-left: 15px;}
+
+@media only screen and (max-device-width : 736px) {
+	#links{ top:0px !important;}
+	#links li{
+		display: block;
+		width: 100%;
+		margin-top: 10px;
+		text-decoration: underline;
+	}
+}
+
+@media screen and (max-width: 767px) {
+    #links li{display: block;}
+    #links{ position: static; }
 }

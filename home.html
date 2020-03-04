@@ -6,7 +6,7 @@
   <title>DactyloKD</title>
   <link rel="shortcut icon" type="image/x-icon" href="images/logo.png" />
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/nav.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -15,6 +15,18 @@
 
 <body>
   <!--Here comes the nav bar-->
+  <nav class="navbar navbar-expand-lg bg-trans">
+    <a class="navbar-brand" href="index.html">DactyloKD</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse content-right" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link login-btn" href="#" data-target="#login" data-toggle="modal">Login</a>
+      </div>
+    </div>
+  </nav>
   <div id="root">
     <div class="container"></div>
   </div>
