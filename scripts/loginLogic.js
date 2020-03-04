@@ -1,10 +1,35 @@
+const rmCheck = document.getElementById("rememberMe"),
+  usernameInput = document.getElementById("username"),
+  passwordInput = document.getElementById("password");
 $(document).ready(function() {
+
+  if (window.localStorage.getItem('checked') === "true") {
+    rmCheck.setAttribute("checked", "checked");
+    usernameInput.value = window.localStorage.getItem('username');
+    passwordInput.value = window.localStorage.getItem('username');
+  } else {
+    rmCheck.removeAttribute("checked");
+    usernameInput.value = "";
+    passwordInput.value = "";
+  }
   document.getElementById("submitBtn").addEventListener("click", function() {
     submit();
   });
 });
 
 function submit() {
+  if (rmCheck.checked && usernameInput.value !== "") {
+    //localStorage.username = usernameInput.value;
+    //localStorage.checkbox = rmCheck.value;
+    window.localStorage.setItem('username', usernameInput.value);
+    window.localStorage.setItem('password', passwordInput.value);
+    window.localStorage.setItem('checked', true);
+  } else {
+    window.localStorage.setItem("username" ,"");
+    window.localStorage.setItem("password" , "");
+    window.localStorage.setItem("checked", false);
+  }
+
   var username = document.getElementById("username").value;
   var password = document.getElementById("password").value;
   //  var username = "dayanT";
