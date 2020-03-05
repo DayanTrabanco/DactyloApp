@@ -92,3 +92,46 @@ a.login-link:hover{
     #links li{display: block;}
     #links{ position: static; }
 }
+
+.bg-blue {
+	background-color: #084f8e;
+}
+
+.bg-blue{
+      z-index: 1000;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      transition: .2s linear all;
+}
+
+.bg-blue a {
+  color: #ffffff
+}
+
+.bg-blue a:hover {
+  color: #B5FB98;
+}
+
+.content-right {
+  justify-content: flex-end;
+}
+
+
+.login-btn {
+    background: #ffffff;
+    padding: 8px 20px !important;
+    border-radius: 1.2rem;
+    color: #084f8e !important;
+    margin-left: 10px;
+    font-weight: 700;
+}
+
+.login-btn:hover {
+
+    box-shadow: inset 0 0 0 1px #5dfc71;
+}
+
+.navbar {
+	position: sticky !important;
+}
