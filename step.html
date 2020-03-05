@@ -5,8 +5,9 @@
   <meta charset="utf-8">
   <title>DactyloKD</title>
   <link rel="shortcut icon" type="image/x-icon" href="images/logo.png" />
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" type="text/css" href="css/step.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <link rel="stylesheet" type="text/css" href="css/step.css"/>
+  <link rel="stylesheet" type="text/css" href="css/login.css"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -21,6 +22,21 @@
     <div id="input" class="Input">
       <!-- here will the spans be created in the script -->
     </div>
+    <div id="scoreBoard" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button data-dismiss="modal" class="close">&times;</button>
+            <h4>Score Board</h4>
+            <form method="post">
+              <p>Score :</p><p id="score"></p>
+              <p>Errors:</p><p id="error"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <br />
     <a href="home.html"><button type="button" name="button">Go back</button><a />
   </div>

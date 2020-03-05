@@ -1,11 +1,8 @@
 $(document).ready(function() {
 
 });
-
 var currentStep = localStorage.getItem('step');
-
 const app = document.getElementById('root')
-
 const container = document.createElement('div')
 container.setAttribute('class', 'container')
 document.getElementById("stepName").innerHTML = "Step" + currentStep;
@@ -21,11 +18,10 @@ request.onload = function() {
   var data = JSON.parse(this.response)
   if (request.status >= 200 && request.status < 400) {
     var letterDiv = document.getElementById('input');
-
     data.forEach(step => {
       letters.push(step.letter);
     })
-    for (var i = 0; i < 20; i++) {
+    for (var i = 0; i < 10; i++) {
       // random using lenth array because sometimes it can be more than 3
       var randomLetter = letters[Math.floor(Math.random() * letters.length)];
       //Like this we won't get multiple spaces next to each other
@@ -40,11 +36,9 @@ request.onload = function() {
         letterDiv.appendChild(letterSpan);
       }
     }
-    //document.getElementById("textField").value = stepString;
   } else {
     const errorMessage = document.createElement('marquee')
     errorMessage.textContent = `Gah, it's not working!`
-    //app.appendChild(errorMessage)
   }
 }
 request.send();

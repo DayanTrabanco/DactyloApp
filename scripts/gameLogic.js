@@ -1,11 +1,15 @@
 //globals that will be used onKeyClicked
 var correct = 0;
 var errors = 0;
-var currentLength = 20;
+var currentLength = 10;
+
+var score = document.getElementById("score");
+var error = document.getElementById("error");
 
 function keyClicked(e) {
   console.log(stepString.length);
   var currentSpan = stepString.length - currentLength;
+  var span = document.getElementById("letter_" + currentSpan);
   console.log("this" + stepString.length + "-" + currentLength);
   var keynum;
   if (window.event) { // IE
@@ -22,16 +26,17 @@ function keyClicked(e) {
     currentLength--;
     correct++;
     //will remove the span when correct
-    var span = document.getElementById("letter_" + currentSpan);
     span.remove();
   } else {
     errors++;
-    document.getElementById("letter_" + currentSpan).style.background = "pink";
-    document.getElementById("letter_" + currentSpan).style.color = "darkred";
-    document.getElementById("letter_" + currentSpan).style.border.bottom = "1px solid Red";
+    span.style.background = "pink";
+    span.style.color = "darkred";
+    span.style.border.bottom = "1px solid Red";
   }
   if (currentLength < 1) {
-    alert("Errors:" + errors + " & correct first try: " + correct + "on a string of :" + stepString.length);
-    window.location = 'home.html';
+    score.innerText = (correct - errors) * 1.2;
+    error.innerText = errors;
+    $('#scoreBoard').modal("show");
+    //window.location.href = "home.html";
   }
 }
