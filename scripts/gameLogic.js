@@ -2,9 +2,21 @@
 var correct = 0;
 var errors = 0;
 var currentLength = 10;
+var sec = 0;
 
 var score = document.getElementById("score");
 var error = document.getElementById("error");
+var time = document.getElementById("time")
+
+$(document).ready(function() {
+  timer()
+});
+
+function timer() {
+  var timer = setInterval(function() {
+    sec++;
+  }, 1000);
+}
 
 function keyClicked(e) {
   console.log(stepString.length);
@@ -34,8 +46,9 @@ function keyClicked(e) {
     span.style.border.bottom = "1px solid Red";
   }
   if (currentLength < 1) {
-    score.innerText = (correct - errors) * 1.2;
+    score.innerText = (correct - errors) / (sec / 100);
     error.innerText = errors;
+    time.innerText = sec + " seconds";
     $('#scoreBoard').modal("show");
     //window.location.href = "home.html";
   }
