@@ -114,7 +114,7 @@ html {
     bottom: 0;
     width: 100%;
     padding: 5px 0;
-    background: #004134;
+    background: #084f8e;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
     user-select: none;
     transition: bottom 0.4s;
@@ -200,6 +200,22 @@ html {
     border-bottom: 3px solid #0a6bf9;
     width: 20px;
     display: inline-block;
+}
+
+.login-btn {
+    background: #ffffff;
+    padding: 8px 20px !important;
+    border-radius: 1.2rem;
+    color: #084f8e !important;
+    margin-left: 10px;
+    font-weight: 700;
+    position: absolute;
+    top: 14px;
+}
+
+.login-btn:hover {
+
+    box-shadow: inset 0 0 0 1px #5dfc71;
 }
 
 /* css for the scoreBoard after the step */
