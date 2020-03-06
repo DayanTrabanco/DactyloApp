@@ -28,9 +28,12 @@ request.onload = function() {
 
     $('.card').click(function (e) {
         window.location = 'step.html';
-        //console.log(e.originalEvent.path[1].id);
 
-        localStorage.setItem('step' , e.originalEvent.path[1].id);
+        //oude manier
+        //localStorage.setItem('step' , e.originalEvent.path[1].id);
+
+        //nieuwe manier gebaseerd op text van card
+        localStorage.setItem('step' , e.originalEvent.path[1].innerText.split(" ")[1].replace(/[^0-9]+/g, ""));
     });
   } else {
     const errorMessage = document.createElement('marquee')

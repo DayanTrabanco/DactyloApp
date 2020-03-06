@@ -5,7 +5,7 @@ var currentStep = localStorage.getItem('step');
 const app = document.getElementById('root')
 const container = document.createElement('div')
 container.setAttribute('class', 'container')
-document.getElementById("stepName").innerHTML = "Step" + currentStep;
+document.getElementById("stepName").innerHTML = "Step" + " " + currentStep;
 
 var letters = [" "];
 //We put the letters in a string so we can just use it for checking the char before
