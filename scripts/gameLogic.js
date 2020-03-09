@@ -6,7 +6,8 @@ var sec = 0;
 
 var score = document.getElementById("score");
 var error = document.getElementById("error");
-var time = document.getElementById("time")
+var time = document.getElementById("time");
+var stepname = document.getElementById("stepName").innerHTML;
 
 $(document).ready(function() {
   timer()
@@ -46,10 +47,36 @@ function keyClicked(e) {
     span.style.border.bottom = "1px solid Red";
   }
   if (currentLength < 1) {
+    var test = (correct - errors) / (sec / 100);
     score.innerText = (correct - errors) / (sec / 100);
     error.innerText = errors;
     time.innerText = sec + " seconds";
     $('#scoreBoard').modal("show");
     //window.location.href = "home.html";
+    var params = {
+      "totalChars": 10,
+      "totalCorrect": correct,
+      "totalErrors": errors,
+      "wpm": 15,
+      "timeNeeded": sec,
+      "score": test,
+      "username": "dayanT",
+      "stepname": stepname
+    }
+    var request = new XMLHttpRequest();
+    request.open('POST', 'http://localhost:8080/scores', true);
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    request.onload = function() {
+      // Begin accessing JSON data here
+      var data = JSON.parse(this.response)
+      if (request.status >= 200 && request.status < 400) {
+        console.log(request.responseText);
+      } else {
+        const errorMessage = document.createElement('marquee')
+        errorMessage.textContent = `Gah, it's not working!`
+      }
+    }
+    request.send(JSON.stringify(params));
+
   }
 }

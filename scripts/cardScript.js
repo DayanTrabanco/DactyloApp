@@ -14,16 +14,23 @@ request.onload = function() {
     data.forEach(step => {
       const card = document.createElement('div')
       card.setAttribute('class', 'card')
-      card.setAttribute("id", step.id)
+      card.setAttribute("id", step.name)
       const h1 = document.createElement('h1')
       h1.textContent = step.name
       const p = document.createElement('p')
       step.description = step.description.substring(0, 300)
       p.textContent = `${step.description}`
 
+      const p2 = document.createElement('p');
+      const button =document.createElement('button');
+      button.setAttribute('class' , 'Leaderboard-btn');
+      button.textContent = "Leaderboard";
+      p2.appendChild(button);
+
       container.appendChild(card)
       card.appendChild(h1)
       card.appendChild(p)
+      card.appendChild(p2)
     })
 
     $('.card').click(function (e) {
@@ -34,6 +41,10 @@ request.onload = function() {
 
         //nieuwe manier gebaseerd op text van card
         localStorage.setItem('step' , e.originalEvent.path[1].innerText.split(" ")[1].replace(/[^0-9]+/g, ""));
+    });
+
+    $('.Leaderboard-btn').click(function (e) {
+        window.location = 'index.html';
     });
   } else {
     const errorMessage = document.createElement('marquee')
