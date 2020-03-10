@@ -23,13 +23,14 @@
     </button>
     <div class="collapse navbar-collapse content-right" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link active" href="leaderboards.html">Leaderboards</a>
+        <a class="nav-item nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link active" href="#">Leaderboards</a>
         <a class="nav-item nav-link login-btn" href="#" data-target="#login" data-toggle="modal">Login</a>
       </div>
     </div>
   </nav>
-
+  <!--Here comes the nav bar-->
+  <!--<div id="nav-placeholder"></div> -->
   <!-- Login form triggered by login button -->
   <div id="login" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -47,11 +48,21 @@
       </div>
     </div>
   </div>
+
   <div id="root">
-    <div class="container"></div>
+    <div class="container">
+      <table style="width:100%" id="table">
+        <tr>
+          <th>User</th>
+          <th>Score</th>
+        </tr>
+      </table>
+    </div>
   </div>
-  <script src="scripts/cardScript.js"></script>
+  <!-- Will be used for all the logic of the login form -->
   <script src="scripts/loginLogic.js"></script>
+  <script src="scripts/leaderboards.js"></script>
 </body>
+
 
 </html>

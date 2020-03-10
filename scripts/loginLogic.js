@@ -44,7 +44,7 @@ function submit() {
     if (request.status >= 200 && request.status < 400) {
       console.log(data);
       //backend aanpassen zodat 2 params kunnen ingevoerd worden en dus daarop checken voor de login
-      alert("you are in");
+      localStorage.setItem("user" , data.username);
     } else {
       alert("not logged in");
       const errorMessage = document.createElement('marquee')

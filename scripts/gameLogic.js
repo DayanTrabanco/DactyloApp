@@ -53,30 +53,34 @@ function keyClicked(e) {
     time.innerText = sec + " seconds";
     $('#scoreBoard').modal("show");
     //window.location.href = "home.html";
-    var params = {
-      "totalChars": 10,
-      "totalCorrect": correct,
-      "totalErrors": errors,
-      "wpm": 15,
-      "timeNeeded": sec,
-      "score": test,
-      "username": "dayanT",
-      "stepname": stepname
-    }
-    var request = new XMLHttpRequest();
-    request.open('POST', 'http://localhost:8080/scores', true);
-    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    request.onload = function() {
-      // Begin accessing JSON data here
-      var data = JSON.parse(this.response)
-      if (request.status >= 200 && request.status < 400) {
-        console.log(request.responseText);
-      } else {
-        const errorMessage = document.createElement('marquee')
-        errorMessage.textContent = `Gah, it's not working!`
+
+
+    if (localStorage.getItem("user") !== "") {
+      var params = {
+        "totalChars": 10,
+        "totalCorrect": correct,
+        "totalErrors": errors,
+        "wpm": 15,
+        "timeNeeded": sec,
+        "score": test,
+        "username": localStorage.getItem("user"),
+        "stepname": stepname
       }
+      var request = new XMLHttpRequest();
+      request.open('POST', 'http://localhost:8080/scores', true);
+      request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      request.onload = function() {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response)
+        if (request.status >= 200 && request.status < 400) {
+          console.log(request.responseText);
+        } else {
+          const errorMessage = document.createElement('marquee')
+          errorMessage.textContent = `Gah, it's not working!`
+        }
+      }
+      request.send(JSON.stringify(params));
     }
-    request.send(JSON.stringify(params));
 
   }
 }
