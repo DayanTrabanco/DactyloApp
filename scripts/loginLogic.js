@@ -32,21 +32,18 @@ function submit() {
     window.localStorage.setItem("checked", false);
   }
 
-  var username = document.getElementById("username").value;
-  var password = document.getElementById("password").value;
-  //  var username = "dayanT";
-  //var password = "test125";
-  console.log(username, password);
   var request = new XMLHttpRequest()
-  request.open('GET', 'http://localhost:8080/users/login/' + username + "," + password, true)
+  request.open('GET', 'http://localhost:8080/users/login/' + usernameInput.value + "," + passwordInput.value, true)
   request.onload = function() {
     var data = JSON.parse(this.response);
     if (request.status >= 200 && request.status < 400) {
-      console.log(data);
-      //backend aanpassen zodat 2 params kunnen ingevoerd worden en dus daarop checken voor de login
+      //we keep the user to know who is connected (and like that we can use it in scoreBoard)
       localStorage.setItem("user" , data.username);
+      document.getElementById("loginBtn").style.display = 'none';
+      document.getElementById("logoutBtn").style.display = 'block';
+      $('#login').modal("hide");
     } else {
-      alert("not logged in");
+      alert("Not right combination");
       const errorMessage = document.createElement('marquee')
       errorMessage.textContent = `Gah, it's not working!`
       //app.appendChild(errorMessage)

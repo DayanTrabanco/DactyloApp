@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/nav.css">
   <link rel="stylesheet" type="text/css" href="css/login.css">
+  <link rel="stylesheet" type="text/css" href="css/leaderboard.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -51,14 +52,34 @@
 
   <div id="root">
     <div class="container">
-      <table style="width:100%" id="table">
-        <tr>
-          <th>User</th>
-          <th>Score</th>
-        </tr>
-      </table>
+      <button type="button" class="collapsible">Leaderboard Step 1</button>
+      <div class="content">
+        <table style="width:100%" id="table">
+          <tr>
+            <th>User</th>
+            <th>Score</th>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
+  </script>
+
   <!-- Will be used for all the logic of the login form -->
   <script src="scripts/loginLogic.js"></script>
   <script src="scripts/leaderboards.js"></script>

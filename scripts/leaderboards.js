@@ -10,7 +10,7 @@ app.appendChild(container);
 
 
 var request = new XMLHttpRequest()
-request.open('GET', 'http://localhost:8080/scores/', true)
+request.open('GET', 'http://localhost:8080/scores/top/step 1', true)
 request.onload = function() {
   // Begin accessing JSON data here
   var data = JSON.parse(this.response)
