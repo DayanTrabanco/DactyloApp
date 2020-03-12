@@ -26,8 +26,10 @@
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link active" href="#">Leaderboards</a>
-        <a class="nav-item nav-link login-btn" href="#" data-target="#login" data-toggle="modal">Login</a>
+        <a id="loginBtn" class="nav-item nav-link login-btn" href="#" data-target="#login" data-toggle="modal" style="display: none">Login</a>
+        <a id="logoutBtn" class="nav-item nav-link login-btn" href="#" style="display: none">Logout</a>
       </div>
+    </div>
     </div>
   </nav>
   <!--Here comes the nav bar-->
@@ -52,36 +54,28 @@
 
   <div id="root">
     <div class="container">
-      <button type="button" class="collapsible">Leaderboard Step 1</button>
-      <div class="content">
-        <table style="width:100%" id="table">
-          <tr>
-            <th>User</th>
-            <th>Score</th>
-          </tr>
-        </table>
+      <div class="dropdown">
+        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Leaderboards
+        </button>
+        <div id="dropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        </div>
       </div>
+      <table style="width:100%" id="table" class="table table-dark">
+        <tr>
+          <th>User</th>
+          <th>Correct</th>
+          <th>Errors</th>
+          <th>Time</th>
+          <th>Score</th>
+          <th>Achieved on</th>
+        </tr>
+      </table>
     </div>
   </div>
-  <script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight) {
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-        }
-      });
-    }
-  </script>
-
   <!-- Will be used for all the logic of the login form -->
   <script src="scripts/loginLogic.js"></script>
+  <script src="scripts/logout.js"></script>
   <script src="scripts/leaderboards.js"></script>
 </body>
 
