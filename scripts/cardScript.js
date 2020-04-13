@@ -23,8 +23,8 @@ request.onload = function() {
 
       const p2 = document.createElement('p');
       const button =document.createElement('button');
-      button.setAttribute('class' , 'Leaderboard-btn');
-      button.textContent = "Leaderboard";
+      button.setAttribute('class' , 'leaderboard-btn');
+      button.textContent = "leaderboard";
       p2.appendChild(button);
 
       container.appendChild(card)
@@ -43,7 +43,7 @@ request.onload = function() {
         localStorage.setItem('step' , e.originalEvent.path[1].innerText.split(" ")[1].replace(/[^0-9]+/g, ""));
     });
 
-    $('.Leaderboard-btn').click(function (e) {
+    $('.leaderboard-btn').click(function (e) {
         window.location = 'index.html';
     });
   } else {

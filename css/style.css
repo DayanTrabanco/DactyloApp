@@ -2,6 +2,11 @@
   box-sizing: border-box
 }
 
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -14,6 +19,14 @@ html {
 #root {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.dactylo_bg {
+  background-image: url(../images/typewriter_bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
 }
 
 h1 {
@@ -79,4 +92,17 @@ p {
 
 .card:nth-child(5n) h1 {
   background-image: linear-gradient(120deg, #ffc3a0 0%, #ffafbd 100%);
+}
+
+.leaderboard-btn {
+  background: #ffffff;
+  padding: 8px 20px !important;
+  border-radius: 1.2rem;
+  color: #084f8e !important;
+  margin-left: 10px;
+  font-weight: 700;
+}
+
+.leaderboard-btn:hover {
+  box-shadow: inset 0 0 0 1px #5dfc71;
 }
