@@ -22,7 +22,7 @@ html {
 }
 
 .dactylo_bg {
-  background-image: url(../images/typewriter_bg.jpg);
+  /*background-image: url(../images/typewriter_bg.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -63,11 +63,14 @@ p {
   overflow: hidden;
   transition: all .2s linear;
   cursor: pointer;
+  opacity: 0.7;
+
 }
 
 .card:hover {
   box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
   transform: translate3D(0, -2px, 0);
+  opacity: 1;
 }
 
 @media screen and (min-width: 600px) {
@@ -101,6 +104,7 @@ p {
   color: #084f8e !important;
   margin-left: 10px;
   font-weight: 700;
+  opacity: 1;
 }
 
 .leaderboard-btn:hover {

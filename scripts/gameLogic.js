@@ -1,7 +1,7 @@
 //globals that will be used onKeyClicked
 var correct = 0;
 var errors = 0;
-var currentLength = 10;
+var currentLength = 100;
 var sec = 0;
 
 var score = document.getElementById("score");
@@ -57,7 +57,7 @@ function keyClicked(e) {
 
     if (localStorage.getItem("user") !== "") {
       var params = {
-        "totalChars": 10,
+        "totalChars": 100,
         "totalCorrect": correct,
         "totalErrors": errors,
         "wpm": 15,
