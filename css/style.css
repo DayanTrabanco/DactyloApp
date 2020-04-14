@@ -22,11 +22,10 @@ html {
 }
 
 .dactylo_bg {
-  /*background-image: url(../images/typewriter_bg.jpg); */
+  background-image: url(../images/typewriter_bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100%;
 }
 
 h1 {
@@ -63,7 +62,7 @@ p {
   overflow: hidden;
   transition: all .2s linear;
   cursor: pointer;
-  opacity: 0.7;
+  opacity: 0.9;
 
 }
 
