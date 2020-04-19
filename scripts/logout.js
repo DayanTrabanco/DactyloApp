@@ -7,8 +7,8 @@ $(document).ready(function() {
   //  document.getElementById("currentUser").style.display = 'block';
   //  document.getElementById("currentUser").innerText = window.localStorage.getItem("user");
   } else {
-  //  document.getElementById("loginBtn").style.display = 'block';
-  //  document.getElementById("logoutBtn").style.display = 'none';
+   document.getElementById("loginBtn").style.display = 'block';
+   document.getElementById("logoutBtn").style.display = 'none';
   //  document.getElementById("currentUser").style.display = 'none';
   }
   document.getElementById("logoutBtn").addEventListener("click", function() {
