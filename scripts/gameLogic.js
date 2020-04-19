@@ -67,7 +67,7 @@ function keyClicked(e) {
         "stepname": stepname
       }
       var request = new XMLHttpRequest();
-      request.open('POST', 'http://localhost:8080/scores', true);
+      request.open('POST', 'http://pure-brushlands-81405.herokuapp.com/scores', true);
       request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       request.onload = function() {
         // Begin accessing JSON data here

@@ -6,7 +6,7 @@ container.setAttribute('class', 'container')
 app.appendChild(container)
 
 var request = new XMLHttpRequest()
-request.open('GET', 'http://localhost:8080/steps/', true)
+request.open('GET', 'http://pure-brushlands-81405.herokuapp.com/steps', true)
 request.onload = function() {
   // Begin accessing JSON data here
   var data = JSON.parse(this.response)

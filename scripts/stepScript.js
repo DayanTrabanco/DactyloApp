@@ -12,7 +12,7 @@ var letters = [" "];
 var stepString = [""]
 
 var request = new XMLHttpRequest()
-request.open('GET', 'http://localhost:8080/letters/smaller/' + currentStep, true)
+request.open('GET', 'http://pure-brushlands-81405.herokuapp.com/letters/smaller/' + currentStep, true)
 request.onload = function() {
   // Begin accessing JSON data here
   var data = JSON.parse(this.response)

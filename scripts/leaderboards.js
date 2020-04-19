@@ -13,7 +13,7 @@ const dropdown = document.getElementById("dropdown");
 
 
 var request1 = new XMLHttpRequest()
-request1.open('GET', 'http://localhost:8080/steps', true)
+request1.open('GET', 'http://pure-brushlands-81405.herokuapp.com/steps', true)
 request1.onload = function() {
   // Begin accessing JSON data here
   var data1 = JSON.parse(this.response)
@@ -47,7 +47,7 @@ function showLeaderboard(e) {
   }
   //leaderboard step 1
   var request = new XMLHttpRequest()
-  request.open('GET', 'http://localhost:8080/scores/top/' + e.currentTarget.text, true)
+  request.open('GET', 'http://pure-brushlands-81405.herokuapp.com/scores/top/' + e.currentTarget.text, true)
   request.onload = function() {
     // Begin accessing JSON data here
     var data = JSON.parse(this.response)
