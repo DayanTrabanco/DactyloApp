@@ -1,16 +1,16 @@
 $(document).ready(function() {
   document.getElementById("submitRegBtn").addEventListener("click", function() {
-    submit();
+    register();
   });
 });
 
-function submit() {
+function register() {
   var username = document.getElementById("usernameReg").value;
   var password = document.getElementById("passwordReg").value;
   var email = document.getElementById("emailReg").value;
   var params = {
     "username": username,
-    "password": password,
+    "password": md5(password),
     "email": email
   }
 
@@ -24,7 +24,7 @@ function submit() {
       $('#login').modal("hide");
       $('#register').modal("hide");
       var request2 = new XMLHttpRequest()
-      request2.open('GET', 'http://pure-brushlands-81405.herokuapp.com/users/login/' + username + "," + password, true)
+      request2.open('GET', 'http://pure-brushlands-81405.herokuapp.com/users/login/' + username + "," + md5(password), true)
       request2.onload = function() {
         var data = JSON.parse(this.response);
         if (request2.status >= 200 && request2.status < 400) {
