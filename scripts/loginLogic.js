@@ -33,7 +33,7 @@ function submit() {
   }
 
   var request = new XMLHttpRequest()
-  request.open('GET', 'http://pure-brushlands-81405.herokuapp.com/users/login/' + usernameInput.value + "," + passwordInput.value, true)
+  request.open('GET', 'http://pure-brushlands-81405.herokuapp.com/users/login/' + usernameInput.value + "," + md5(passwordInput.value), true)
   request.onload = function() {
     var data = JSON.parse(this.response);
     if (request.status >= 200 && request.status < 400) {
