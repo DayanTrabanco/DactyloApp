@@ -23,6 +23,8 @@ function keyClicked(e) {
   console.log(stepString.length);
   var currentSpan = stepString.length - currentLength;
   var span = document.getElementById("letter_" + currentSpan);
+  var nextSpan = document.getElementById("letter_" + (currentSpan + 1));
+  var prevSpan = nextSpan - 1;
   console.log("this" + stepString.length + "-" + currentLength);
   var keynum;
   if (window.event) { // IE
@@ -38,10 +40,22 @@ function keyClicked(e) {
     //if correct we will reduce the length of the string
     currentLength--;
     correct++;
-    //will remove the span when correct
-    span.remove();
+    //go to next span if incorrect
+    span.classList.remove("active");
+    if(nextSpan){
+      nextSpan.classList.add("active");
+    }
+    //Style span
+    span.style.background = "#e7fbd3";
+    span.style.color = "#0e630e";
+    span.style.border.radius = "4px";
   } else {
+    currentLength--;
     errors++;
+    span.classList.remove("active");
+    if(nextSpan){
+      nextSpan.classList.add("active")
+    }
     span.style.background = "pink";
     span.style.color = "darkred";
     span.style.border.bottom = "1px solid Red";

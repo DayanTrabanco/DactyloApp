@@ -34,6 +34,9 @@ request.onload = function() {
         letterSpan.id = "letter_" + i;
         letterSpan.className = "letterStyle";
         letterDiv.appendChild(letterSpan);
+        var startLetter = document.getElementById("letter_0");
+        startLetter.classList.add("active");
+
       }
     }
   } else {

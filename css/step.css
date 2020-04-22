@@ -7,8 +7,24 @@
   width: auto;
   height: 1000px;
   margin: 0 auto;
+  position: relative;
 }
 
+.content::after {
+  background-image: url(../images/1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity : 0.5;
+    z-index: -1;
+}
 .error {
     position: relative;
     animation: shake .1s linear;
@@ -114,8 +130,7 @@ html {
     bottom: 0;
     width: 100%;
     padding: 5px 0;
-    background: #084f8e;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    background: transparent;
     user-select: none;
     transition: bottom 0.4s;
 }
@@ -130,9 +145,9 @@ html {
     max-width: 90px;
     margin: 3px;
     border-radius: 4px;
-    border: none;
+    border: 1px solid;
     background: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
+    color: #0000000;
     font-size: 1.05rem;
     outline: none;
     cursor: pointer;
@@ -182,21 +197,22 @@ html {
   color: #757575;
   width: 20px;
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 .Input {
   position: center;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  width: calc(100% - 500px)
+  width: calc(100% - 500px);
+  font-family: "DroidSansMono";
 }
 
-.Input span.letterStyle:first-child {
-  font-size: 45px;
+.Input span.letterStyle.active {
+  font-size: 35px;
     color: #757575;
     border-bottom: 3px solid #0a6bf9;
-    width: 40px;
+    width: 27px;
     display: inline-block;
 }
 
@@ -218,9 +234,11 @@ html {
 
 span.letterStyle {
     display: inline-block;
-    width: 40px;
-    height: 70px;
-    margin-bottom: -19px;
+    width: 27px;
+    height: 55px;
+    margin-bottom: -17px;
+    font-size: 35px;
+    margin-right: 2px;
 }
 
 /* css for the scoreBoard after the step */
