@@ -51,15 +51,15 @@
       </div>
     </div>
   </div>
-
   <div id="root">
     <div class="container">
       <div class="dropdown">
-        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Leaderboards
-        </button>
-        <div id="dropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        </div>
+        <select id="steps" class="btn btn-secondary btn-lg dropdown-toggle">
+        </select>
+        <select id="options" class="btn btn-secondary btn-lg dropdown-toggle">
+          <option value="All">All</option>
+          <option id="me" value="Me"></option>
+        </select>
       </div>
       <table style="width:100%" id="table" class="table table-dark">
         <tr>
