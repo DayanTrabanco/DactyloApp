@@ -26,8 +26,13 @@ function keyBoard(){
 
   for (var i = 0; i < keyboardLetters.length; i++) {
     keyArray.push(keyboardLetters[i].textContent.trim());
+    if(keyboardLetters[i].textContent.trim() == nextLetter.toLowerCase()){
+      console.log("yes", i)
+      console.log(keyArray[i])
+      var getKey = parentDOM.getElementsByClassName("keyboard__key")[i];
+      getKey.style.background = "#e7fbd3";
+    }
   }
-  console.log("keyboardLetters:", keyArray);
 }
 
 function keyClicked(e) {
@@ -36,16 +41,23 @@ function keyClicked(e) {
   var span = document.getElementById("letter_" + currentSpan);
   var nextSpan = document.getElementById("letter_" + (currentSpan + 1));
   var nextLetter = nextSpan.innerText;
-  var highlightNextKey = document.getElementById(nextLetter);
-  highlightNextKey.setAttribute("color", "red");
+
   console.log("nextSpan:", nextLetter);
   var prevSpan = nextSpan - 1;
   console.log("this" + stepString.length + "-" + currentLength);
 
-  keyBoard();
-  if(keyArray.includes(nextLetter)){
-    console.log(nextLetter);
+  //keyboard logic
+  var parentDOM = document.getElementById("keyboard__key-id");
+  var keyboardLetters = parentDOM.getElementsByClassName("keyboard__key");
 
+  for (var i = 0; i < keyboardLetters.length; i++) {
+    keyArray.push(keyboardLetters[i].textContent.trim());
+
+      if(keyboardLetters[i].textContent.trim() == nextLetter.toLowerCase()){
+        var getKey = parentDOM.getElementsByClassName("keyboard__key")[i];
+        getKey.classList.add("keycolor");
+      }
+    
   }
 
   var keynum;
