@@ -21,16 +21,16 @@ request.onload = function() {
       step.description = step.description.substring(0, 300)
       p.textContent = `${step.description}`
 
-      const p2 = document.createElement('p');
-      const button =document.createElement('button');
-      button.setAttribute('class' , 'leaderboard-btn');
-      button.textContent = "leaderboard";
-      p2.appendChild(button);
+      //const p2 = document.createElement('p');
+      //const button =document.createElement('button');
+      //button.setAttribute('class' , 'leaderboard-btn');
+      //button.textContent = "leaderboard";
+      //p2.appendChild(button);
 
       container.appendChild(card)
       card.appendChild(h1)
       card.appendChild(p)
-      card.appendChild(p2)
+      //card.appendChild(p2)
     })
 
     $('.card').click(function (e) {
