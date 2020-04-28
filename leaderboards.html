@@ -13,6 +13,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="scripts/md5.js"></script>
 </head>
 
 <body>
@@ -46,6 +47,23 @@
             <input id="password" type="password" name="password" class="password form-control" placeholder="password" />
             <input type="checkbox" value="lsRememberMe" id="rememberMe"> <label for="rememberMe">Remember me</label>
             <a id="submitBtn" name="button" class="login-btn" href="#">Login</a>
+            <a id="registerBtn" name="button" class="login-btn" href="#" data-target="#register" data-toggle="modal">Register me</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="register" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button data-dismiss="modal" class="close">&times;</button>
+          <h4>Register</h4>
+          <form method="post">
+            <input id="usernameReg" type="text" name="username" class="username form-control" placeholder="Username"/>
+            <input id="emailReg" type="text" name="email" class="email form-control" placeholder="Email@"/>
+            <input id="passwordReg" type="password" name="password" class="password form-control" placeholder="password"/>
+            <a id="submitRegBtn" name="button" class="login-btn" href="#">Submit</a>
           </form>
         </div>
       </div>
@@ -78,6 +96,7 @@
   <script src="scripts/loginLogic.js"></script>
   <script src="scripts/logout.js"></script>
   <script src="scripts/leaderboards.js"></script>
+  <script src="scripts/registerLogic.js"></script>
 </body>
 
 
