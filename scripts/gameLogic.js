@@ -8,6 +8,7 @@ var score = document.getElementById("score");
 var error = document.getElementById("error");
 var time = document.getElementById("time");
 var stepname = document.getElementById("stepName").innerHTML;
+var keyArray = [];
 
 $(document).ready(function() {
   timer()
@@ -19,13 +20,34 @@ function timer() {
   }, 1000);
 }
 
+function keyBoard(){
+  var parentDOM = document.getElementById("keyboard__key-id");
+  var keyboardLetters = parentDOM.getElementsByClassName("keyboard__key");
+
+  for (var i = 0; i < keyboardLetters.length; i++) {
+    keyArray.push(keyboardLetters[i].textContent.trim());
+  }
+  console.log("keyboardLetters:", keyArray);
+}
+
 function keyClicked(e) {
   console.log(stepString.length);
   var currentSpan = stepString.length - currentLength;
   var span = document.getElementById("letter_" + currentSpan);
   var nextSpan = document.getElementById("letter_" + (currentSpan + 1));
+  var nextLetter = nextSpan.innerText;
+  var highlightNextKey = document.getElementById(nextLetter);
+  highlightNextKey.setAttribute("color", "red");
+  console.log("nextSpan:", nextLetter);
   var prevSpan = nextSpan - 1;
   console.log("this" + stepString.length + "-" + currentLength);
+
+  keyBoard();
+  if(keyArray.includes(nextLetter)){
+    console.log(nextLetter);
+
+  }
+
   var keynum;
   if (window.event) { // IE
     keynum = e.keyCode;
@@ -45,6 +67,7 @@ function keyClicked(e) {
     if(nextSpan){
       nextSpan.classList.add("active");
     }
+
     //Style span
     span.style.background = "#e7fbd3";
     span.style.color = "#0e630e";
