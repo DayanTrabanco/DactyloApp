@@ -36,6 +36,27 @@ function nextLetter(){
   return nextSpan().innerText;
 }
 
+function redLetters(){
+  return 'f' || 'F' || 'j' || 'J';
+}
+
+function colorLetter(e){
+  switch(nextLetter()) {
+  case 'f': case 'F': case 'j': case 'J': case 'G': case 'g': case 'H': case 'h':
+    return e.style.background = "#fd4a46";
+    break;
+  case 'e': case 'd': case 'c': case 'E': case 'D': case 'i': case 'k':
+  case 'I':
+  case 'K':
+  case 'C': return e.style.background = "#fac025";
+  case '': return e.style.background = "#bdccd4";
+    // code block
+    break;
+  default: return e.style.background = "#bdccd4";
+    // code block
+}
+}
+
 function keyBoard(){
   var parentDOM = document.getElementById("keyboard__key-id");
   var keyboardLetters = parentDOM.getElementsByClassName("keyboard__key");
@@ -45,10 +66,11 @@ function keyBoard(){
     if(nextSpan() && (keyArray[i] == nextLetter().toLowerCase())){
       if(nextLetter() === nextLetter().toUpperCase() && nextLetter() !== ''){
         var caps = parentDOM.getElementsByClassName("caps-lock")[0];
-        caps.style.background = "#e7fbd3";
+        //change Colors
+        colorLetter(caps);
       }
       var getKey = parentDOM.getElementsByClassName("keyboard__key")[i];
-      getKey.style.background = "#e7fbd3";
+      colorLetter(getKey);
     }
     else if(keyboardLetters[i].style.background != null){
       keyboardLetters[i].style.background = "rgba(255, 255, 255, 0.7)";

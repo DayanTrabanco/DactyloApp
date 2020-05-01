@@ -10,7 +10,7 @@
 }
 
 .content::after {
-  background-image: url(../images/1.jpg);
+  background-image: url(../images/2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -124,14 +124,13 @@ html {
 }
 
 .keyboard {
-    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    padding: 5px 0;
     background: transparent;
     user-select: none;
     transition: bottom 0.4s;
+    margin-top: 40px;
 }
 
 .keyboard__keys {
@@ -139,8 +138,8 @@ html {
 }
 
 .keyboard__key {
-    height: 45px;
-    width: 6%;
+    height: 35px;
+    width: 4%;
     max-width: 90px;
     margin: 3px;
     border-radius: 4px;
@@ -242,6 +241,15 @@ span.letterStyle {
 
 .keycolor{
   background-color: #5dfc71;
+}
+
+.hands{
+  width: 100%;
+}
+
+.key_hands{
+  width: 30%;
+  text-align: center;
 }
 
 
