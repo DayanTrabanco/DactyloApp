@@ -51,7 +51,7 @@ function keyBoard(){
       getKey.style.background = "#e7fbd3";
     }
     else if(keyboardLetters[i].style.background != null){
-      keyboardLetters[i].style.background = "transparent";
+      keyboardLetters[i].style.background = "rgba(255, 255, 255, 0.7)";
     }
   }
 }
