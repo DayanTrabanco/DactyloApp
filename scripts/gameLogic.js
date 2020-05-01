@@ -20,15 +20,29 @@ function timer() {
   }, 1000);
 }
 
+function currentSpan(){
+  return stepString.length - currentLength;
+}
+
+function span(){
+  return document.getElementById("letter_" + currentSpan());
+}
+
+function nextSpan(){
+  return document.getElementById("letter_" + (currentSpan() + 1));
+}
+
+function nextLetter(){
+  return nextSpan().innerText;
+}
+
 function keyBoard(){
   var parentDOM = document.getElementById("keyboard__key-id");
   var keyboardLetters = parentDOM.getElementsByClassName("keyboard__key");
 
   for (var i = 0; i < keyboardLetters.length; i++) {
     keyArray.push(keyboardLetters[i].textContent.trim());
-    if(keyboardLetters[i].textContent.trim() == nextLetter.toLowerCase()){
-      console.log("yes", i)
-      console.log(keyArray[i])
+    if(nextSpan() && (keyArray[i] == nextLetter().toLowerCase())){
       var getKey = parentDOM.getElementsByClassName("keyboard__key")[i];
       getKey.style.background = "#e7fbd3";
     }
@@ -36,29 +50,13 @@ function keyBoard(){
 }
 
 function keyClicked(e) {
-  console.log(stepString.length);
-  var currentSpan = stepString.length - currentLength;
-  var span = document.getElementById("letter_" + currentSpan);
-  var nextSpan = document.getElementById("letter_" + (currentSpan + 1));
-  var nextLetter = nextSpan.innerText;
+  var span = document.getElementById("letter_" + currentSpan());
+  var nextSpan = document.getElementById("letter_" + (currentSpan() + 1));
 
-  console.log("nextSpan:", nextLetter);
-  var prevSpan = nextSpan - 1;
   console.log("this" + stepString.length + "-" + currentLength);
 
   //keyboard logic
-  var parentDOM = document.getElementById("keyboard__key-id");
-  var keyboardLetters = parentDOM.getElementsByClassName("keyboard__key");
-
-  for (var i = 0; i < keyboardLetters.length; i++) {
-    keyArray.push(keyboardLetters[i].textContent.trim());
-
-      if(keyboardLetters[i].textContent.trim() == nextLetter.toLowerCase()){
-        var getKey = parentDOM.getElementsByClassName("keyboard__key")[i];
-        getKey.classList.add("keycolor");
-      }
-    
-  }
+  keyBoard();
 
   var keynum;
   if (window.event) { // IE
@@ -67,10 +65,10 @@ function keyClicked(e) {
     keynum = e.which;
   }
   console.log("the pressed key" + "'" + String.fromCharCode(keynum).trim() + "'");
-  console.log("the correct key needed" + "'" + document.getElementById("letter_" + currentSpan).innerText + "'");
-  console.log("current letter : " + currentSpan);
+  console.log("the correct key needed" + "'" + document.getElementById("letter_" + currentSpan()).innerText + "'");
+  console.log("current letter : " + currentSpan());
   console.log("currentLength of the string :" + currentLength);
-  if (document.getElementById("letter_" + currentSpan).innerText === String.fromCharCode(keynum).trim()) {
+  if (document.getElementById("letter_" + currentSpan()).innerText === String.fromCharCode(keynum).trim()) {
     //if correct we will reduce the length of the string
     currentLength--;
     correct++;
