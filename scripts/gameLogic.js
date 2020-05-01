@@ -46,6 +46,9 @@ function keyBoard(){
       var getKey = parentDOM.getElementsByClassName("keyboard__key")[i];
       getKey.style.background = "#e7fbd3";
     }
+    else if(keyboardLetters[i].style.background != null){
+      keyboardLetters[i].style.background = "transparent";
+    }
   }
 }
 
