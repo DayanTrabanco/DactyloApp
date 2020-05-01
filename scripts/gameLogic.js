@@ -43,6 +43,10 @@ function keyBoard(){
   for (var i = 0; i < keyboardLetters.length; i++) {
     keyArray.push(keyboardLetters[i].textContent.trim());
     if(nextSpan() && (keyArray[i] == nextLetter().toLowerCase())){
+      if(nextLetter() === nextLetter().toUpperCase() && nextLetter() !== ''){
+        var caps = parentDOM.getElementsByClassName("caps-lock")[0];
+        caps.style.background = "#e7fbd3";
+      }
       var getKey = parentDOM.getElementsByClassName("keyboard__key")[i];
       getKey.style.background = "#e7fbd3";
     }
