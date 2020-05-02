@@ -80,7 +80,7 @@ function showLeaderboard(e) {
         var date = document.createElement('td');
         var step = document.createElement('td');
 
-        highScore.innerText = score.score;
+        highScore.innerText = Math.round(score.score);
         correct.innerText = score.totalCorrect;
         user.innerText = score.username;
         errors.innerText = score.totalErrors;
