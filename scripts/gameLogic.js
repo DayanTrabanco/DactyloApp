@@ -57,7 +57,23 @@ function colorLetter(e){
 }
 }
 
+function colorHand(e){
+  switch(nextLetter()) {
+  case 'f': case 'F': case 'G': case 'g':
+    return e.style.backgroundImage = "url('./images/key_hands_left_hand.svg')";
+    break;
+  case 'j': case 'J': case 'H': case 'h':
+    return e.style.backgroundImage = "url('./images/key_hands_red_right_hand.svg')";
+  case '': return e.style.backgroundImage = "url('./images/key_hands_space_right.svg')";
+    // code block
+    break;
+  default: return e.style.backgroundImage = "url('./images/key_hands_space_left.svg')";
+    // code block
+}
+}
+
 function keyBoard(){
+  var handDOM = document.getElementById("hands");
   var parentDOM = document.getElementById("keyboard__key-id");
   var keyboardLetters = parentDOM.getElementsByClassName("keyboard__key");
 
@@ -69,8 +85,10 @@ function keyBoard(){
         //change Colors
         colorLetter(caps);
       }
+      var handImg = handDOM.getElementsByClassName("key_hands")[0];
       var getKey = parentDOM.getElementsByClassName("keyboard__key")[i];
       colorLetter(getKey);
+      colorHand(handImg);
     }
     else if(keyboardLetters[i].style.background != null){
       keyboardLetters[i].style.background = "rgba(255, 255, 255, 0.7)";

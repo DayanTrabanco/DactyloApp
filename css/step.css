@@ -243,13 +243,18 @@ span.letterStyle {
   background-color: #5dfc71;
 }
 
-.hands{
+#hands{
   width: 100%;
 }
 
 .key_hands{
-  width: 30%;
-  text-align: center;
+  width: 25%;
+    background-image: url('../images/key_hands.svg');
+    background-repeat: no-repeat;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 200px;
+    margin: auto;
 }
 
 
