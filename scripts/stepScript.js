@@ -1,6 +1,82 @@
 $(document).ready(function() {
 
 });
+
+function startLetter(){
+  return document.getElementById("letter_0");
+}
+
+function start(){
+  var startLetter = document.getElementById("letter_0");
+  //Moet meteen aangeroepen worden, is niet de case, why????
+  return startLetter.innerText;
+}
+
+function colorLetter(e){
+  switch(start()) {
+  case 'f': case 'F': case 'G': case 'g': case 'v': case 'V': case 'r': case 'R': case 'T': case 't': case 'b': case 'B': case 'j': case 'J': case 'H': case 'h': case ',': case 'u': case 'U': case 'y': case 'Y': case 'n': case 'N':
+    return e.style.background = "#fd4a46";
+    break;
+  case 'd': case 'c': case 'e': case 'D': case 'C': case 'E': case 'k': case 'K': case ';': case 'i': case 'I':
+    return e.style.background = "#fac025";
+    break;
+  case 's': case 'S': case 'z': case 'Z': case 'x': case 'X': case 'l': case 'L': case 'o': case 'O': case ':':
+    return e.style.background = "#7db721";
+    break;
+  case 'q': case 'Q': case 'w': case 'W': case 'a': case 'A': case 'p': case 'P': case 'M': case 'm': case '=':
+    return e.style.background = "#0176ff";
+    break;
+  case '': return e.style.background = "#bdccd4";
+    // code block
+    break;
+  default: return e.style.background = "#bdccd4";
+    // code block
+}
+}
+
+
+function colorHand(e){
+  switch(start()) {
+    // Left index finger
+  case 'f': case 'F': case 'G': case 'g': case 'v': case 'V': case 'r': case 'R': case 'T': case 't': case 'b': case 'B':
+    return e.style.backgroundImage = "url('./images/key_hands_red_left_hand.svg')";
+    break;
+    // Right index finger
+  case 'j': case 'J': case 'H': case 'h': case ',': case 'u': case 'U': case 'y': case 'Y': case 'n': case 'N':
+    return e.style.backgroundImage = "url('./images/key_hands_red_right_hand.svg')";
+    break;
+    // Left middle finger
+  case 'd': case 'c': case 'e': case 'D': case 'C': case 'E':
+    return e.style.backgroundImage = "url('./images/key_hands_yellow_left_hand.svg')";
+    break;
+    // Right middle finger
+    case 'k': case 'K': case ';': case 'i': case 'I':
+      return e.style.backgroundImage = "url('./images/key_hands_yellow_right_hand.svg')";
+      break;
+    // Left ring finger
+    case 's': case 'S': case 'z': case 'Z': case 'x': case 'X':
+      return e.style.backgroundImage = "url('./images/key_hands_green_left_hand.svg')";
+      break;
+    // Right ring finger
+    case 'l': case 'L': case 'o': case 'O': case ':':
+      return e.style.backgroundImage = "url('./images/key_hands_green_right_hand.svg')";
+      break;
+    // Left pinky finger
+    case 'q': case 'Q': case 'w': case 'W': case 'a': case 'A':
+      return e.style.backgroundImage = "url('./images/key_hands_blue_left_hand.svg')";
+      break;
+    // Right pinky finger
+    case 'p': case 'P': case 'M': case 'm': case '=':
+      return e.style.backgroundImage = "url('./images/key_hands_blue_right_hand.svg')";
+      break;
+  case '': return e.style.backgroundImage = "url('./images/key_hands_space_right.svg')";
+    // code block
+    break;
+  default: return e.style.backgroundImage = "url('./images/key_hands_space_left.svg')";
+    // code block
+}
+}
+
 var currentStep = localStorage.getItem('step');
 const app = document.getElementById('root')
 const container = document.createElement('div')
@@ -21,7 +97,7 @@ request.onload = function() {
     data.forEach(step => {
       letters.push(step.letter);
     })
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 70; i++) {
       // random using lenth array because sometimes it can be more than 3
       var randomLetter = letters[Math.floor(Math.random() * letters.length)];
       //Like this we won't get multiple spaces next to each other
@@ -34,14 +110,30 @@ request.onload = function() {
         letterSpan.id = "letter_" + i;
         letterSpan.className = "letterStyle";
         letterDiv.appendChild(letterSpan);
-        var startLetter = document.getElementById("letter_0");
-        startLetter.classList.add("active");
-
+        startLetter().classList.add("active");
       }
     }
+
+    //Get first Letter + color and hand
+    var parentDOM = document.getElementById("keyboard__key-id");
+    var handDOM = document.getElementById("hands");
+    var keyboardLetters = parentDOM.getElementsByClassName("keyboard__key");
+    var keyArray = [];
+
+    for (var i = 0; i < keyboardLetters.length; i++) {
+      keyArray.push(keyboardLetters[i].textContent.trim());
+        if(startLetter() && keyArray[i] == start().toLowerCase()){
+         var firstKey = parentDOM.getElementsByClassName("keyboard__key")[i];
+         var handImg = handDOM.getElementsByClassName("key_hands")[0];
+         colorLetter(firstKey);
+         colorHand(handImg);
+       }
+     }
+
   } else {
     const errorMessage = document.createElement('marquee')
     errorMessage.textContent = `Gah, it's not working!`
   }
 }
+
 request.send();

@@ -1,7 +1,7 @@
 //globals that will be used onKeyClicked
 var correct = 0;
 var errors = 0;
-var currentLength = 100;
+var currentLength = 70;
 var sec = 0;
 
 var score = document.getElementById("score");
