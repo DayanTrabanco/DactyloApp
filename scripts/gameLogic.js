@@ -20,96 +20,214 @@ function timer() {
   }, 1000);
 }
 
-function currentSpan(){
+function currentSpan() {
   return stepString.length - currentLength;
 }
 
-function span(){
+function span() {
   return document.getElementById("letter_" + currentSpan());
 }
 
-function nextSpan(){
+function nextSpan() {
   return document.getElementById("letter_" + (currentSpan() + 1));
 }
 
-function nextLetter(){
+function nextLetter() {
+  switch (nextSpan().innerText) {
+    case '+':
+      return "=";
+    case '?':
+      return ",";
+    case ".":
+      return ";";
+    case "/":
+      return ":";
+  }
   return nextSpan().innerText;
 }
 
-function colorLetter(e){
-  switch(nextLetter()) {
-  case 'f': case 'F': case 'G': case 'g': case 'v': case 'V': case 'r': case 'R': case 'T': case 't': case 'b': case 'B': case 'j': case 'J': case 'H': case 'h': case ',': case 'u': case 'U': case 'y': case 'Y': case 'n': case 'N':
-    return e.style.background = "#fd4a46";
-    break;
-  case 'd': case 'c': case 'e': case 'D': case 'C': case 'E': case 'k': case 'K': case ';': case 'i': case 'I':
-    return e.style.background = "#fac025";
-    break;
-  case 's': case 'S': case 'z': case 'Z': case 'x': case 'X': case 'l': case 'L': case 'o': case 'O': case ':':
-    return e.style.background = "#7db721";
-    break;
-  case 'q': case 'Q': case 'w': case 'W': case 'a': case 'A': case 'p': case 'P': case 'M': case 'm': case '=':
-    return e.style.background = "#0176ff";
-    break;
-  case '': return e.style.background = "#bdccd4";
-    // code block
-    break;
-  default: return e.style.background = "#bdccd4";
-    // code block
-}
+function nextSymbol() {
+  return nextSpan().innerText;
 }
 
-function colorHand(e){
-  switch(nextLetter()) {
+function colorLetter(e) {
+  switch (nextLetter()) {
+    case 'f':
+    case 'F':
+    case 'G':
+    case 'g':
+    case 'v':
+    case 'V':
+    case 'r':
+    case 'R':
+    case 'T':
+    case 't':
+    case 'b':
+    case 'B':
+    case 'j':
+    case 'J':
+    case 'H':
+    case 'h':
+    case ',':
+    case 'u':
+    case 'U':
+    case 'y':
+    case 'Y':
+    case 'n':
+    case 'N':
+      return e.style.background = "#fd4a46";
+      break;
+    case 'd':
+    case 'c':
+    case 'e':
+    case 'D':
+    case 'C':
+    case 'E':
+    case 'k':
+    case 'K':
+    case ';':
+    case 'i':
+    case 'I':
+      return e.style.background = "#fac025";
+      break;
+    case 's':
+    case 'S':
+    case 'z':
+    case 'Z':
+    case 'x':
+    case 'X':
+    case 'l':
+    case 'L':
+    case 'o':
+    case 'O':
+    case ':':
+      return e.style.background = "#7db721";
+      break;
+    case 'q':
+    case 'Q':
+    case 'w':
+    case 'W':
+    case 'a':
+    case 'A':
+    case 'p':
+    case 'P':
+    case 'M':
+    case 'm':
+    case '=':
+      return e.style.background = "#0176ff";
+      break;
+    case '':
+      return e.style.background = "#bdccd4";
+      // code block
+      break;
+    default:
+      return e.style.background = "#bdccd4";
+      // code block
+  }
+}
+
+function colorHand(e) {
+  switch (nextLetter()) {
     // Left index finger
-  case 'f': case 'F': case 'G': case 'g': case 'v': case 'V': case 'r': case 'R': case 'T': case 't': case 'b': case 'B':
-    return e.style.backgroundImage = "url('./images/key_hands_red_left_hand.svg')";
-    break;
-    // Right index finger
-  case 'j': case 'J': case 'H': case 'h': case ',': case 'u': case 'U': case 'y': case 'Y': case 'n': case 'N':
-    return e.style.backgroundImage = "url('./images/key_hands_red_right_hand.svg')";
-    break;
-    // Left middle finger
-  case 'd': case 'c': case 'e': case 'D': case 'C': case 'E':
-    return e.style.backgroundImage = "url('./images/key_hands_yellow_left_hand.svg')";
-    break;
-    // Right middle finger
-    case 'k': case 'K': case ';': case 'i': case 'I':
+    case 'f':
+    case 'F':
+    case 'G':
+    case 'g':
+    case 'v':
+    case 'V':
+    case 'r':
+    case 'R':
+    case 'T':
+    case 't':
+    case 'b':
+    case 'B':
+      return e.style.backgroundImage = "url('./images/key_hands_red_left_hand.svg')";
+      break;
+      // Right index finger
+    case 'j':
+    case 'J':
+    case 'H':
+    case 'h':
+    case ',':
+    case 'u':
+    case 'U':
+    case 'y':
+    case 'Y':
+    case 'n':
+    case 'N':
+      return e.style.backgroundImage = "url('./images/key_hands_red_right_hand.svg')";
+      break;
+      // Left middle finger
+    case 'd':
+    case 'c':
+    case 'e':
+    case 'D':
+    case 'C':
+    case 'E':
+      return e.style.backgroundImage = "url('./images/key_hands_yellow_left_hand.svg')";
+      break;
+      // Right middle finger
+    case 'k':
+    case 'K':
+    case ';':
+    case 'i':
+    case 'I':
       return e.style.backgroundImage = "url('./images/key_hands_yellow_right_hand.svg')";
       break;
-    // Left ring finger
-    case 's': case 'S': case 'z': case 'Z': case 'x': case 'X':
+      // Left ring finger
+    case 's':
+    case 'S':
+    case 'z':
+    case 'Z':
+    case 'x':
+    case 'X':
       return e.style.backgroundImage = "url('./images/key_hands_green_left_hand.svg')";
       break;
-    // Right ring finger
-    case 'l': case 'L': case 'o': case 'O': case ':':
+      // Right ring finger
+    case 'l':
+    case 'L':
+    case 'o':
+    case 'O':
+    case ':':
       return e.style.backgroundImage = "url('./images/key_hands_green_right_hand.svg')";
       break;
-    // Left pinky finger
-    case 'q': case 'Q': case 'w': case 'W': case 'a': case 'A':
+      // Left pinky finger
+    case 'q':
+    case 'Q':
+    case 'w':
+    case 'W':
+    case 'a':
+    case 'A':
       return e.style.backgroundImage = "url('./images/key_hands_blue_left_hand.svg')";
       break;
-    // Right pinky finger
-    case 'p': case 'P': case 'M': case 'm': case '=':
+      // Right pinky finger
+    case 'p':
+    case 'P':
+    case 'M':
+    case 'm':
+    case '=':
       return e.style.backgroundImage = "url('./images/key_hands_blue_right_hand.svg')";
       break;
-  case '': return e.style.backgroundImage = "url('./images/key_hands_space_right.svg')";
-    // code block
-    break;
-  default: return e.style.backgroundImage = "url('./images/key_hands_space_left.svg')";
-    // code block
-}
+    case '':
+      return e.style.backgroundImage = "url('./images/key_hands_space_right.svg')";
+      // code block
+      break;
+    default:
+      return e.style.backgroundImage = "url('./images/key_hands_space_left.svg')";
+      // code block
+  }
 }
 
-function keyBoard(){
+function keyBoard() {
   var handDOM = document.getElementById("hands");
   var parentDOM = document.getElementById("keyboard__key-id");
   var keyboardLetters = parentDOM.getElementsByClassName("keyboard__key");
 
   for (var i = 0; i < keyboardLetters.length; i++) {
     keyArray.push(keyboardLetters[i].textContent.trim());
-    if(nextSpan() && (keyArray[i] == nextLetter().toLowerCase())){
-      if(nextLetter() === nextLetter().toUpperCase() && nextLetter() !== ''){
-        var caps = parentDOM.getElementsByClassName("caps-lock")[0];
+    if (nextSpan() && (keyArray[i] == nextLetter().toLowerCase())) {
+      if (nextLetter() === nextLetter().toUpperCase() && (nextSymbol() !== "" && nextSymbol() !== "," && nextSymbol() !== ";" && nextSymbol() !== ":" && nextSymbol() !== "=" )) {
+        var caps = parentDOM.getElementsByClassName("caps-left")[0];
         //change Colors
         colorLetter(caps);
       }
@@ -117,8 +235,7 @@ function keyBoard(){
       var getKey = parentDOM.getElementsByClassName("keyboard__key")[i];
       colorLetter(getKey);
       colorHand(handImg);
-    }
-    else if(keyboardLetters[i].style.background != null){
+    } else if (keyboardLetters[i].style.background != null) {
       keyboardLetters[i].style.background = "rgba(255, 255, 255, 0.7)";
     }
   }
@@ -149,7 +266,7 @@ function keyClicked(e) {
     correct++;
     //go to next span if incorrect
     span.classList.remove("active");
-    if(nextSpan){
+    if (nextSpan) {
       nextSpan.classList.add("active");
     }
 
@@ -161,7 +278,7 @@ function keyClicked(e) {
     currentLength--;
     errors++;
     span.classList.remove("active");
-    if(nextSpan){
+    if (nextSpan) {
       nextSpan.classList.add("active")
     }
     span.style.background = "pink";
