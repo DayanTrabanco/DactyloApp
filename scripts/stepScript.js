@@ -6,14 +6,10 @@ function startLetter(){
   return document.getElementById("letter_0");
 }
 
-function start(){
-  var startLetter = document.getElementById("letter_0");
-  //Moet meteen aangeroepen worden, is niet de case, why????
-  return startLetter.innerText;
-}
 
-function colorLetter(e){
-  switch(start()) {
+
+function colorFirstLetter(e){
+  switch(startLetter().innerText) {
   case 'f': case 'F': case 'G': case 'g': case 'v': case 'V': case 'r': case 'R': case 'T': case 't': case 'b': case 'B': case 'j': case 'J': case 'H': case 'h': case ',': case 'u': case 'U': case 'y': case 'Y': case 'n': case 'N':
     return e.style.background = "#fd4a46";
     break;
@@ -35,8 +31,8 @@ function colorLetter(e){
 }
 
 
-function colorHand(e){
-  switch(start()) {
+function colorFirstHand(e){
+  switch(startLetter().innerText) {
     // Left index finger
   case 'f': case 'F': case 'G': case 'g': case 'v': case 'V': case 'r': case 'R': case 'T': case 't': case 'b': case 'B':
     return e.style.backgroundImage = "url('./images/key_hands_red_left_hand.svg')";
@@ -122,13 +118,17 @@ request.onload = function() {
 
     for (var i = 0; i < keyboardLetters.length; i++) {
       keyArray.push(keyboardLetters[i].textContent.trim());
-        if(startLetter() && keyArray[i] == start().toLowerCase()){
-         var firstKey = parentDOM.getElementsByClassName("keyboard__key")[i];
-         var handImg = handDOM.getElementsByClassName("key_hands")[0];
-         colorLetter(firstKey);
-         colorHand(handImg);
-       }
+      if(keyArray[i] === startLetter().innerText.toLowerCase()){
+       var firstKey = parentDOM.getElementsByClassName("keyboard__key")[i];
+       var handImg = handDOM.getElementsByClassName("key_hands")[0];
+       colorFirstLetter(firstKey);
+       colorFirstHand(handImg);
+       return true;
      }
+
+     }
+
+
 
   } else {
     const errorMessage = document.createElement('marquee')
