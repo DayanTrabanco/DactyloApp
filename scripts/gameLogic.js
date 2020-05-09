@@ -175,7 +175,7 @@ function colorHand(e) {
     case 'q':
     case 'w':
     case 'a':
-      e.style.backgroundImage = "url('./images/key_hands_blue_left_hand')";
+      e.style.backgroundImage = "url('./images/key_hands_blue_left_hand.svg')";
       break;
       // Right pinky finger
     case 'p':
