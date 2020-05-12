@@ -85,17 +85,10 @@ function colorFirstLetter(e) {
 
 function colorFirstHand(e) {
   switch (startLetter().innerText) {
-    // Left index finger
-    // Left index finger
     case 'f':
-    case 'F':
-    case 'G':
     case 'g':
     case 'v':
-    case 'V':
     case 'r':
-    case 'R':
-    case 'T':
     case 't':
     case 'b':
     case 'B':
@@ -103,65 +96,45 @@ function colorFirstHand(e) {
       break;
       // Right index finger
     case 'j':
-    case 'J':
-    case 'H':
     case 'h':
     case ',':
     case 'u':
-    case 'U':
     case 'y':
-    case 'Y':
     case 'n':
-    case 'N':
       return e.style.backgroundImage = "url('./images/key_hands_red_right_hand.svg')";
       break;
       // Left middle finger
     case 'd':
     case 'c':
     case 'e':
-    case 'D':
-    case 'C':
-    case 'E':
       return e.style.backgroundImage = "url('./images/key_hands_yellow_left_hand.svg')";
       break;
       // Right middle finger
     case 'k':
-    case 'K':
     case ';':
     case 'i':
-    case 'I':
       return e.style.backgroundImage = "url('./images/key_hands_yellow_right_hand.svg')";
       break;
       // Left ring finger
     case 's':
-    case 'S':
     case 'z':
-    case 'Z':
     case 'x':
-    case 'X':
       return e.style.backgroundImage = "url('./images/key_hands_green_left_hand.svg')";
       break;
       // Right ring finger
     case 'l':
-    case 'L':
     case 'o':
-    case 'O':
     case ':':
       return e.style.backgroundImage = "url('./images/key_hands_green_right_hand.svg')";
       break;
       // Left pinky finger
     case 'q':
-    case 'Q':
     case 'w':
-    case 'W':
     case 'a':
-    case 'A':
-      return e.style.backgroundImage = "url('./images/key_hands_blue_left_hand.svg')";
+      e.style.backgroundImage = "url('./images/key_hands_blue_left_hand.svg')";
       break;
       // Right pinky finger
     case 'p':
-    case 'P':
-    case 'M':
     case 'm':
     case '=':
       return e.style.backgroundImage = "url('./images/key_hands_blue_right_hand.svg')";
@@ -170,6 +143,42 @@ function colorFirstHand(e) {
       return e.style.backgroundImage = "url('./images/key_hands_space_right.svg')";
       // code block
       break;
+    case 'J':
+    case 'H':
+    case 'Y':
+    case 'U':
+    case 'N':
+    case '?':
+      return e.style.backgroundImage = "url('./images/key_hands_blue_left_hand_red_right_hand.svg')";
+    case 'K':
+    case 'I':
+    case '.':
+      return e.style.backgroundImage = "url('./images/key_hands_blue_left_hand_yellow_right_hand.svg')";
+    case 'L':
+    case 'O':
+    case '/':
+      return e.style.backgroundImage = "url('./images/key_hands_blue_left_hand_green_right_hand.svg')";
+    case 'M':
+    case 'P':
+    case 'W':
+    case 'Q':
+    case 'A':
+      return e.style.backgroundImage = "url('./images/key_hands_blue_left_hand_blue_right_hand.svg')";
+    case 'F':
+    case 'G':
+    case 'T':
+    case 'R':
+    case 'V':
+    case 'B':
+      return e.style.backgroundImage = "url('./images/key_hands_red_left_hand_blue_right_hand.svg')";
+    case 'D':
+    case 'E':
+    case 'C':
+      return e.style.backgroundImage = "url('./images/key_hands_yellow_left_hand_blue_right_hand.svg')";
+    case 'S':
+    case 'Z':
+    case 'X':
+      return e.style.backgroundImage = "url('./images/key_hands_green_left_hand_blue_right_hand.svg')";
     default:
       return e.style.backgroundImage = "url('./images/key_hands_space_left.svg')";
       // code block

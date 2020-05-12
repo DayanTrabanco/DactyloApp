@@ -179,7 +179,6 @@ function colorHand(e) {
       break;
       // Right pinky finger
     case 'p':
-    case 'P':
     case 'm':
     case '=':
       return e.style.backgroundImage = "url('./images/key_hands_blue_right_hand.svg')";
@@ -260,7 +259,7 @@ function keyClicked(e) {
   console.log("this" + stepString.length + "-" + currentLength);
 
   //keyboard logic
-  keyBoard();
+
 
   var keynum;
   if (window.event) { // IE
@@ -274,6 +273,8 @@ function keyClicked(e) {
   console.log("currentLength of the string :" + currentLength);
   if (document.getElementById("letter_" + currentSpan()).innerText === String.fromCharCode(keynum).trim()) {
     //if correct we will reduce the length of the string
+    //change key only when it is correct
+    keyBoard();
     currentLength--;
     correct++;
     //go to next span if incorrect
@@ -287,12 +288,12 @@ function keyClicked(e) {
     span.style.color = "#0e630e";
     span.style.border.radius = "4px";
   } else {
-    currentLength--;
+    //currentLength--;
     errors++;
-    span.classList.remove("active");
+    /*span.classList.remove("active");
     if (nextSpan) {
       nextSpan.classList.add("active")
-    }
+    } */
     span.style.background = "pink";
     span.style.color = "darkred";
     span.style.border.bottom = "1px solid Red";
