@@ -91,7 +91,6 @@ function colorFirstHand(e) {
     case 'r':
     case 't':
     case 'b':
-    case 'B':
       return e.style.backgroundImage = "url('./images/key_hands_red_left_hand.svg')";
       break;
       // Right index finger

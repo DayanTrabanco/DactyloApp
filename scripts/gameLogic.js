@@ -33,16 +33,9 @@ function nextSpan() {
 }
 
 function nextLetter() {
-  switch (nextSpan().innerText) {
-    case '+':
-      return "=";
-    case '?':
-      return ",";
-    case ".":
-      return ";";
-    case "/":
-      return ":";
-  }
+  //switch (nextSpan().innerText) {
+
+  //}
   return nextSpan().innerText;
 }
 
@@ -69,6 +62,7 @@ function colorLetter(e) {
     case 'H':
     case 'h':
     case ',':
+    case '?':
     case 'u':
     case 'U':
     case 'y':
@@ -86,6 +80,7 @@ function colorLetter(e) {
     case 'k':
     case 'K':
     case ';':
+    case '.':
     case 'i':
     case 'I':
       return e.style.background = "#fac025";
@@ -101,6 +96,7 @@ function colorLetter(e) {
     case 'o':
     case 'O':
     case ':':
+    case '/':
       return e.style.background = "#7db721";
       break;
     case 'q':
@@ -114,6 +110,7 @@ function colorLetter(e) {
     case 'M':
     case 'm':
     case '=':
+    case '+':
       return e.style.background = "#0176ff";
       break;
     case '':
@@ -135,7 +132,6 @@ function colorHand(e) {
     case 'r':
     case 't':
     case 'b':
-    case 'B':
       return e.style.backgroundImage = "url('./images/key_hands_red_left_hand.svg')";
       break;
       // Right index finger
@@ -207,6 +203,7 @@ function colorHand(e) {
     case 'W':
     case 'Q':
     case 'A':
+    case '+':
       return e.style.backgroundImage = "url('./images/key_hands_blue_left_hand_blue_right_hand.svg')";
     case 'F':
     case 'G':
@@ -230,17 +227,24 @@ function colorHand(e) {
 }
 
 function keyBoard() {
+  console.log("next letter" + nextLetter());
   var handDOM = document.getElementById("hands");
   var parentDOM = document.getElementById("keyboard__key-id");
   var keyboardLetters = parentDOM.getElementsByClassName("keyboard__key");
 
   for (var i = 0; i < keyboardLetters.length; i++) {
     keyArray.push(keyboardLetters[i].textContent.trim());
-    if (nextSpan() && (keyArray[i] == nextLetter().toLowerCase())) {
+
+    //if (nextSpan() && (keyArray[i].charAt(0) === nextLetter().toLowerCase() || ( keyArray[i].charAt(1) === nextLetter().toLowerCase() && keyArray[i].charAt(1) !== ""))) {
+      //if (nextLetter() === nextLetter().toUpperCase() && (nextSymbol() !== "" && nextSymbol() !== "," && nextSymbol() !== ";" && nextSymbol() !== ":" && nextSymbol() !== "=")) {
+
+    if (nextSpan() && (keyArray[i].charAt(0) === nextLetter().toLowerCase())) {
       if (nextLetter() === nextLetter().toUpperCase() && (nextSymbol() !== "" && nextSymbol() !== "," && nextSymbol() !== ";" && nextSymbol() !== ":" && nextSymbol() !== "=")) {
-        var caps = parentDOM.getElementsByClassName("caps-left")[0];
+        //var caps = parentDOM.getElementsByClassName("caps-left")[0];
         //change Colors
-        colorLetter(caps);
+        //colorLetter(caps);
+        //caps.style.background = "#0176ff";
+
       }
       var handImg = handDOM.getElementsByClassName("key_hands")[0];
       var getKey = parentDOM.getElementsByClassName("keyboard__key")[i];
@@ -255,12 +259,6 @@ function keyBoard() {
 function keyClicked(e) {
   var span = document.getElementById("letter_" + currentSpan());
   var nextSpan = document.getElementById("letter_" + (currentSpan() + 1));
-
-  console.log("this" + stepString.length + "-" + currentLength);
-
-  //keyboard logic
-
-
   var keynum;
   if (window.event) { // IE
     keynum = e.keyCode;
@@ -274,7 +272,11 @@ function keyClicked(e) {
   if (document.getElementById("letter_" + currentSpan()).innerText === String.fromCharCode(keynum).trim()) {
     //if correct we will reduce the length of the string
     //change key only when it is correct
-    keyBoard();
+    //keyboard logic
+    if(currentLength > 1) {
+      keyBoard();
+    }
+
     currentLength--;
     correct++;
     //go to next span if incorrect

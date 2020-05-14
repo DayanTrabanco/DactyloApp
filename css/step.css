@@ -161,6 +161,26 @@ html {
     -webkit-tap-highlight-color: transparent;
     position: relative;
 }
+.keyboard__key_not_used {
+    height: 35px;
+    width: 4%;
+    max-width: 90px;
+    margin: 3px;
+    border-radius: 4px;
+    border: 1px solid;
+    background: rgba(255, 255, 255, 0.7);
+    color: #0000000;
+    font-size: 1.05rem;
+    outline: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+}
 
 .keyboard__key:active {
     background: rgba(255, 255, 255, 0.12);
