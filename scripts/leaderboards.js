@@ -1,7 +1,7 @@
 const app = document.getElementById('root')
 
 const userOption = document.getElementById("me");
-if(localStorage.getItem("user") !== "") {
+if (localStorage.getItem("user") !== "") {
   userOption.innerText = localStorage.getItem("user");
   userOption.style.display = "block";
 } else {
@@ -35,9 +35,7 @@ request1.onload = function() {
   var data1 = JSON.parse(this.response)
   if (request1.status >= 200 && request1.status < 400) {
     data1.forEach(step => {
-      //console.log(step);
       const option = document.createElement('option');
-      //const anchor = document.createElement('a');
       option.innerText = step.name;
       steps.appendChild(option);
     })
@@ -50,16 +48,15 @@ request1.onload = function() {
 request1.send();
 
 function showLeaderboard(e) {
-  console.log(e);
   var step = document.getElementById("steps").value;
   var option = document.getElementById("options").value;
   var oldTr = document.getElementById("tr");
-  if(oldTr !== undefined && oldTr !== null) {
+  if (oldTr !== undefined && oldTr !== null) {
     oldTr.remove();
   }
   //leaderboard step 1
   var request = new XMLHttpRequest()
-  if(document.getElementById("options").value === "All") {
+  if (document.getElementById("options").value === "All") {
     request.open('GET', 'http://pure-brushlands-81405.herokuapp.com/scores/top/' + step, true);
   } else {
     request.open('GET', 'http://pure-brushlands-81405.herokuapp.com/scores/topBoth/' + step + "," + localStorage.getItem("user"), true);

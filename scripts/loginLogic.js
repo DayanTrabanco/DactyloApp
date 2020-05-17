@@ -1,5 +1,4 @@
 const rmCheck = document.getElementById("rememberMe"),
-
   usernameInput = document.getElementById("username"),
   passwordInput = document.getElementById("password");
 
@@ -13,7 +12,6 @@ $(document).ready(function() {
     usernameInput.value = "";
     passwordInput.value = "";
   }
-
   document.getElementById("submitBtn").addEventListener("click", function() {
     submit();
   });
@@ -21,14 +19,12 @@ $(document).ready(function() {
 
 function submit() {
   if (rmCheck.checked && usernameInput.value !== "") {
-    //localStorage.username = usernameInput.value;
-    //localStorage.checkbox = rmCheck.value;
     window.localStorage.setItem('username', usernameInput.value);
     window.localStorage.setItem('password', passwordInput.value);
     window.localStorage.setItem('checked', true);
   } else {
-    window.localStorage.setItem("username" ,"");
-    window.localStorage.setItem("password" , "");
+    window.localStorage.setItem("username", "");
+    window.localStorage.setItem("password", "");
     window.localStorage.setItem("checked", false);
   }
 
@@ -38,7 +34,7 @@ function submit() {
     var data = JSON.parse(this.response);
     if (request.status >= 200 && request.status < 400) {
       //we keep the user to know who is connected (and like that we can use it in scoreBoard)
-      localStorage.setItem("user" , data.username);
+      localStorage.setItem("user", data.username);
       document.getElementById("loginBtn").style.display = 'none';
       document.getElementById("logoutBtn").style.display = 'block';
       $('#login').modal("hide");

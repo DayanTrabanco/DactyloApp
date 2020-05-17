@@ -297,10 +297,6 @@ function keyClicked(e) {
   } else if (e.which) { // Netscape/Firefox/Opera
     keynum = e.which;
   }
-  console.log("the pressed key" + "'" + String.fromCharCode(keynum).trim() + "'");
-  console.log("the correct key needed" + "'" + document.getElementById("letter_" + currentSpan()).innerText + "'");
-  console.log("current letter : " + currentSpan());
-  console.log("currentLength of the string :" + currentLength);
   if (document.getElementById("letter_" + currentSpan()).innerText === String.fromCharCode(keynum).trim()) {
     //if correct we will reduce the length of the string
     //change key only when it is correct
@@ -352,7 +348,6 @@ function keyClicked(e) {
         // Begin accessing JSON data here
         var data = JSON.parse(this.response)
         if (request.status >= 200 && request.status < 400) {
-          console.log(request.responseText);
         } else {
           const errorMessage = document.createElement('marquee')
           errorMessage.textContent = `Gah, it's not working!`

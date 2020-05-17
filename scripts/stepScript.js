@@ -264,7 +264,6 @@ request.onload = function() {
     var keyArray = [];
 
     for (var i = 0; i < keyboardLetters.length; i++) {
-      debugger;
       keyArray.push(keyboardLetters[i].textContent.trim());
       if ((keyArray[i].charAt(0) === startLetter().innerText.toLowerCase() || (keyArray[i].charAt(1) === startLetter().innerText.toLowerCase() && keyArray[i].charAt(1) !== ""))) {
         var firstKey = parentDOM.getElementsByClassName("keyboard__key")[i];
@@ -273,11 +272,7 @@ request.onload = function() {
         colorFirstHand(handImg);
         return true;
       }
-
     }
-
-
-
   } else {
     const errorMessage = document.createElement('marquee')
     errorMessage.textContent = `Gah, it's not working!`
