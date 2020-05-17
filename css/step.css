@@ -95,6 +95,7 @@ html {
 
 .Input {
   position: relative;
+  width: 85% !important;
 }
 
 .Input-text {
@@ -104,7 +105,7 @@ html {
   color: inherit;
   width: 100%;
   font-family: inherit;
-  font-size: var(--inputFontSize);
+  font-size: 5rem;
   font-weight: inherit;
   line-height: var(--inputLineHeight);
   border: none;

@@ -1,18 +1,19 @@
 //globals that will be used onKeyClicked
 var correct = 0;
 var errors = 0;
-var currentLength = 70;
+var currentLength = 200;
 var sec = 0;
 var oneIsEnough = 0;
 
 var score = document.getElementById("score");
 var error = document.getElementById("error");
 var time = document.getElementById("time");
+var wordPerMin = document.getElementById("wpm");
 var stepname = document.getElementById("stepName").innerHTML;
 var keyArray = [];
 
 $(document).ready(function() {
-  timer()
+  timer();
 });
 
 function timer() {
@@ -323,21 +324,24 @@ function keyClicked(e) {
     span.style.border.bottom = "1px solid Red";
   }
   if (currentLength < 1) {
-    var test = (correct - errors) / (sec / 100);
-    score.innerText = (correct - errors) / (sec / 100);
+    var highscore = (correct - errors) * 100 / (sec / 60);
+    var wpm = (200 / 5) / (sec / 60)
+    score.innerText = parseInt(highscore, 10);
     error.innerText = errors;
     time.innerText = sec + " seconds";
+    wordPerMin.innerText = wpm;
+
     $('#scoreBoard').modal("show");
     //window.location.href = "home.html";
 
     if (localStorage.getItem("user") !== "") {
       var params = {
-        "totalChars": 100,
+        "totalChars": 200,
         "totalCorrect": correct,
         "totalErrors": errors,
-        "wpm": 15,
+        "wpm": wpm,
         "timeNeeded": sec,
-        "score": test,
+        "score": highscore,
         "username": localStorage.getItem("user"),
         "stepname": stepname
       }
@@ -347,8 +351,7 @@ function keyClicked(e) {
       request.onload = function() {
         // Begin accessing JSON data here
         var data = JSON.parse(this.response)
-        if (request.status >= 200 && request.status < 400) {
-        } else {
+        if (request.status >= 200 && request.status < 400) {} else {
           const errorMessage = document.createElement('marquee')
           errorMessage.textContent = `Gah, it's not working!`
         }
@@ -356,5 +359,8 @@ function keyClicked(e) {
       request.send(JSON.stringify(params));
     }
 
+    $("#scoreBoard").on("hidden.bs.modal", function() {
+      window.location.href = "home.html";
+    });
   }
 }
