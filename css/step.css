@@ -5,7 +5,7 @@
 
 .content {
   width: auto;
-  height: 1000px;
+  height: auto;
   margin: 0 auto;
 }
 
@@ -78,7 +78,7 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  height: 100%;
+  height: auto;
   color: #455A64;
   background-color: red;
 }
@@ -94,8 +94,9 @@ html {
 }
 
 .Input {
+  padding: 0 !important;
   position: relative;
-  width: 85% !important;
+  width: 100% !important;
 }
 
 .Input-text {
@@ -105,7 +106,7 @@ html {
   color: inherit;
   width: 100%;
   font-family: inherit;
-  font-size: 5rem;
+  font-size: 2rem;
   font-weight: inherit;
   line-height: var(--inputLineHeight);
   border: none;
@@ -131,7 +132,7 @@ html {
     background: transparent;
     user-select: none;
     transition: bottom 0.4s;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .keyboard__keys {
@@ -259,8 +260,8 @@ span.letterStyle {
     display: inline-block;
     width: 27px;
     height: 55px;
-    margin-bottom: -17px;
-    font-size: 35px;
+    margin-bottom: -25px;
+    font-size: 30px;
     margin-right: 2px;
 }
 
