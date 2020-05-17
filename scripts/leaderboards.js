@@ -50,9 +50,16 @@ request1.send();
 function showLeaderboard(e) {
   var step = document.getElementById("steps").value;
   var option = document.getElementById("options").value;
-  var oldTr = document.getElementById("tr");
+  var tableLength = tbl.rows.length;
+  debugger;
+  var oldTr = document.getElementById("tr0");
   if (oldTr !== undefined && oldTr !== null) {
-    oldTr.remove();
+    for(var i = 0; i < tableLength - 1; i++) {
+      var trId = "tr"+i;
+      var oldTr = document.getElementById(trId);
+      oldTr.remove();
+    }
+
   }
   //leaderboard step 1
   var request = new XMLHttpRequest()
@@ -61,14 +68,14 @@ function showLeaderboard(e) {
   } else {
     request.open('GET', 'http://pure-brushlands-81405.herokuapp.com/scores/topBoth/' + step + "," + localStorage.getItem("user"), true);
   }
-
+  var i = 0;
   request.onload = function() {
     // Begin accessing JSON data here
     var data = JSON.parse(this.response)
     if (request.status >= 200 && request.status < 400) {
       data.forEach(score => {
         var tr = document.createElement('tr');
-        tr.id = "tr";
+        tr.id = "tr" + i++;
         var highScore = document.createElement('td');
         var user = document.createElement('td');
         var correct = document.createElement('td');
