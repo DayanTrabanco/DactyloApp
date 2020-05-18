@@ -326,10 +326,10 @@ function keyClicked(e) {
   if (currentLength < 1) {
     var highscore = (correct - errors) * 100 / (sec / 60);
     var wpm = (200 / 5) / (sec / 60)
-    score.innerText = parseInt(highscore, 10);
+    score.innerText = Math.round(highscore);
     error.innerText = errors;
     time.innerText = sec + " seconds";
-    wordPerMin.innerText = wpm;
+    wordPerMin.innerText =  Math.round(wpm);
 
     $('#scoreBoard').modal("show");
     //window.location.href = "home.html";
