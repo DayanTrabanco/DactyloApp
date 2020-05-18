@@ -83,6 +83,7 @@ function showLeaderboard(e) {
         var time = document.createElement('td');
         var date = document.createElement('td');
         var step = document.createElement('td');
+        var wpmCol = document.createElement('td');
 
         highScore.innerText = Math.round(score.score);
         correct.innerText = score.totalCorrect;
@@ -91,12 +92,14 @@ function showLeaderboard(e) {
         time.innerText = score.timeNeeded;
         date.innerText = score.createdOn;
         step.innerText = score.stepname;
+        wpmCol.innerText = score.wpm;
 
         tr.appendChild(user);
         tr.appendChild(step);
         tr.appendChild(correct);
         tr.appendChild(errors);
         tr.appendChild(time);
+        tr.appendChild(wpmCol);
         tr.appendChild(highScore);
         tr.appendChild(date);
         tbl.appendChild(tr);

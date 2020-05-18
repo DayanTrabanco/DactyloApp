@@ -96,7 +96,7 @@ html {
 .Input {
   padding: 0 !important;
   position: relative;
-  width: 100% !important;
+  width: 80% !important;
 }
 
 .Input-text {
@@ -132,7 +132,7 @@ html {
     background: transparent;
     user-select: none;
     transition: bottom 0.4s;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .keyboard__keys {
