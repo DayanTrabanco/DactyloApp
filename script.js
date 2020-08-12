@@ -156,6 +156,7 @@ function testModel(model, inputData, normalizationData) {
     default: level = 1;
     break;
   }
+  var listOfWords = [""];
   console.log(level)
   var request = new XMLHttpRequest()
   request.open('GET', 'http://pure-brushlands-81405.herokuapp.com/words/both/' + level +',EN', true)
@@ -169,12 +170,17 @@ function testModel(model, inputData, normalizationData) {
           const letterWord = document.createElement('p')
           letterWord.textContent = words.word
           console.log(words.word)
+          listOfWords.push(words.word);
 
         })
     } else {
       //
     }
+    window.localStorage.setItem('listOfWords', listOfWords);
   }
+
   request.send()
+
+
 
 }

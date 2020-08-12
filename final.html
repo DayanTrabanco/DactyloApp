@@ -5,14 +5,13 @@
   <meta charset="utf-8">
   <title>DactyloKD</title>
   <link rel="shortcut icon" type="image/x-icon" href="images/logo.png" />
-  <link rel="stylesheet" type="text/css" href="css/style.css"/>
-  <link rel="stylesheet" type="text/css" href="css/step.css"/>
-  <link rel="stylesheet" type="text/css" href="css/login.css"/>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="css/step.css" />
+  <link rel="stylesheet" type="text/css" href="css/login.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
 </head>
 
 <body onkeypress="keyClicked(event)" width="100%" height="100%">
@@ -48,38 +47,40 @@
         <button type="button" class="keyboard__key">p</button>
         <br><button type="button" class="keyboard__key_not_used keyboard__key--wide keyboard__key--activatable">
           <i class="material-icons">caps lock</i></button>
-          <button type="button" class="keyboard__key">q</button>
-          <button type="button" class="keyboard__key">s</button>
-          <button type="button" class="keyboard__key">d</button>
-          <button type="button" class="keyboard__key">f</button>
-          <button type="button" class="keyboard__key">g</button>
-          <button type="button" class="keyboard__key">h</button>
-          <button type="button" class="keyboard__key">j</button>
-          <button type="button" class="keyboard__key">k</button>
-          <button type="button" class="keyboard__key">l</button>
-          <button type="button" class="keyboard__key">m</button>
-          <button type="button" class="keyboard__key_not_used keyboard__key--wide">
-            <i class="material-icons">keyboard_return</i></button>
-            <br><button id="caps_left" type="button" class="keyboard__key_not_used caps_left keyboard__key--wide">Shift</button>
-              <button type="button" class="keyboard__key"><</button>
-              <button type="button" class="keyboard__key">w</button>
-              <button type="button" class="keyboard__key">x</button>
-              <button type="button" class="keyboard__key">c</button>
-              <button type="button" class="keyboard__key">v</button>
-              <button type="button" class="keyboard__key">b</button>
-              <button type="button" class="keyboard__key">n</button>
-              <button type="button" class="keyboard__key">?<br/>,</button>
-              <button type="button" class="keyboard__key">.<br/>;</button>
-              <button type="button" class="keyboard__key">/<br/>:</button>
-              <button type="button" class="keyboard__key">+<br/>=</button>
-              <button type="button" class="keyboard__key_not_used caps_right keyboard__key--wide">
-                <i class="material-icons">Shift</i></button><br>
-              <button type="button" class="keyboard__key keyboard__key--extra-wide">
-                <i class="material-icons"> </i></button></div></div>
+        <button type="button" class="keyboard__key">q</button>
+        <button type="button" class="keyboard__key">s</button>
+        <button type="button" class="keyboard__key">d</button>
+        <button type="button" class="keyboard__key">f</button>
+        <button type="button" class="keyboard__key">g</button>
+        <button type="button" class="keyboard__key">h</button>
+        <button type="button" class="keyboard__key">j</button>
+        <button type="button" class="keyboard__key">k</button>
+        <button type="button" class="keyboard__key">l</button>
+        <button type="button" class="keyboard__key">m</button>
+        <button type="button" class="keyboard__key_not_used keyboard__key--wide">
+          <i class="material-icons">keyboard_return</i></button>
+        <br><button id="caps_left" type="button" class="keyboard__key_not_used caps_left keyboard__key--wide">Shift</button>
+        <button type="button" class="keyboard__key">
+          <</button> <button type="button" class="keyboard__key">w
+        </button>
+        <button type="button" class="keyboard__key">x</button>
+        <button type="button" class="keyboard__key">c</button>
+        <button type="button" class="keyboard__key">v</button>
+        <button type="button" class="keyboard__key">b</button>
+        <button type="button" class="keyboard__key">n</button>
+        <button type="button" class="keyboard__key">?<br />,</button>
+        <button type="button" class="keyboard__key">.<br />;</button>
+        <button type="button" class="keyboard__key">/<br />:</button>
+        <button type="button" class="keyboard__key">+<br />=</button>
+        <button type="button" class="keyboard__key_not_used caps_right keyboard__key--wide">
+          <i class="material-icons">Shift</i></button><br>
+        <button type="button" class="keyboard__key keyboard__key--extra-wide">
+          <i class="material-icons"> </i></button></div>
+    </div>
 
-      <div id="hands">
-          <div class="key_hands"></div>
-      </div>
+    <div id="hands">
+      <div class="key_hands"></div>
+    </div>
     <div id="scoreBoard" class="modal fade" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -87,10 +88,14 @@
             <button data-dismiss="modal" class="close">&times;</button>
             <h4>Score Board</h4>
             <form method="post">
-              <p>Score :</p><p id="score"></p>
-              <p>Errors:</p><p id="error"></p>
-              <p>Time: </p><p id="time"></p>
-              <p>WPM: </p><p id="wpm"></p>
+              <p>Score :</p>
+              <p id="score"></p>
+              <p>Errors:</p>
+              <p id="error"></p>
+              <p>Time: </p>
+              <p id="time"></p>
+              <p>WPM: </p>
+              <p id="wpm"></p>
             </form>
           </div>
         </div>

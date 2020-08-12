@@ -14,67 +14,73 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="scripts/md5.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+  <!-- Import tfjs-vis -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.0.2/dist/tfjs-vis.umd.min.js"></script>
+  <script src="script.js"></script>
+
 </head>
 
 <body>
   <div class="dactylo_bg">
-  <!--Here comes the nav bar-->
-  <nav class="navbar navbar-expand-lg bg-blue">
-    <a class="navbar-brand" href="index.html">DactyloKD</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse content-right" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="index.html">Home</a>
-        <a class="nav-item nav-link" href="leaderboards.html">Leaderboards</a>
-        <a id="loginBtn" class="nav-item nav-link login-btn" href="#" data-target="#login" data-toggle="modal" style="display: none">Login</a>
-        <a id="logoutBtn"class="nav-item nav-link login-btn" href="#" style="display: none">Logout</a>
+    <!--Here comes the nav bar-->
+    <nav class="navbar navbar-expand-lg bg-blue">
+      <a class="navbar-brand" href="index.html">DactyloKD</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse content-right" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="index.html">Home</a>
+          <a class="nav-item nav-link" href="leaderboards.html">Leaderboards</a>
+          <a id="loginBtn" class="nav-item nav-link login-btn" href="#" data-target="#login" data-toggle="modal" style="display: none">Login</a>
+          <a id="logoutBtn" class="nav-item nav-link login-btn" href="#" style="display: none">Logout</a>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <!-- Login form triggered by login button -->
-  <div id="login" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          <button data-dismiss="modal" class="close">&times;</button>
-          <h4>Login</h4>
-          <form method="post">
-            <input id="username" type="text" name="username" class="username form-control" placeholder="Username" />
-            <input id="password" type="password" name="password" class="password form-control" placeholder="password" />
-            <input type="checkbox" value="lsRememberMe" id="rememberMe"> <label for="rememberMe">Remember me</label>
-            <a id="submitBtn" name="button" class="login-btn" href="#">Login</a>
-            <a id="registerBtn" name="button" class="login-btn" href="#" data-target="#register" data-toggle="modal">Register me</a>
-          </form>
+    <!-- Login form triggered by login button -->
+    <div id="login" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button data-dismiss="modal" class="close">&times;</button>
+            <h4>Login</h4>
+            <form method="post">
+              <input id="username" type="text" name="username" class="username form-control" placeholder="Username" />
+              <input id="password" type="password" name="password" class="password form-control" placeholder="password" />
+              <input type="checkbox" value="lsRememberMe" id="rememberMe"> <label for="rememberMe">Remember me</label>
+              <a id="submitBtn" name="button" class="login-btn" href="#">Login</a>
+              <a id="registerBtn" name="button" class="login-btn" href="#" data-target="#register" data-toggle="modal">Register me</a>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div id="register" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          <button data-dismiss="modal" class="close">&times;</button>
-          <h4>Register</h4>
-          <form method="post">
-            <input id="usernameReg" type="text" name="username" class="username form-control" placeholder="Username"/>
-            <input id="emailReg" type="text" name="email" class="email form-control" placeholder="Email@"/>
-            <input id="passwordReg" type="password" name="password" class="password form-control" placeholder="password"/>
-            <a id="submitRegBtn" name="button" class="login-btn" href="#">Submit</a>
-          </form>
+    <div id="register" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button data-dismiss="modal" class="close">&times;</button>
+            <h4>Register</h4>
+            <form method="post">
+              <input id="usernameReg" type="text" name="username" class="username form-control" placeholder="Username" />
+              <input id="emailReg" type="text" name="email" class="email form-control" placeholder="Email@" />
+              <input id="passwordReg" type="password" name="password" class="password form-control" placeholder="password" />
+              <a id="submitRegBtn" name="button" class="login-btn" href="#">Submit</a>
+            </form>
+          </div>
         </div>
       </div>
     </div>
+    <div id="root">
+      <div class="container"></div>
+    </div>
+    <script src="scripts/cardScript.js"></script>
+    <script src="scripts/loginLogic.js"></script>
+    <script src="scripts/logout.js"></script>
+    <script src="scripts/registerLogic.js"></script>
   </div>
-  <div id="root">
-    <div class="container"></div>
-  </div>
-  <script src="scripts/cardScript.js"></script>
-  <script src="scripts/loginLogic.js"></script>
-  <script src="scripts/logout.js"></script>
-  <script src="scripts/registerLogic.js"></script>
-</div>
 </body>
+
 </html>

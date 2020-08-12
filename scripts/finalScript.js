@@ -226,56 +226,42 @@ const container = document.createElement('div')
 container.setAttribute('class', 'container')
 document.getElementById("stepName").innerHTML = "Step" + " " + currentStep;
 
-var words = "";
+var words = window.localStorage.getItem('listOfWords').split(",");
+
+// Choose 30 random words
+const shuffled = words.sort(() => 0.5 - Math.random());
+words = shuffled.slice(0, 30);
+
+var words = words.join().replace(/[ ]*,[ ]*|[ ]+/g, ' ');;
+
 //We put the letters in a string so we can just use it for checking the char before
-var stepString = [""]
-
-var request = new XMLHttpRequest()
+var stepString = [""];
 debugger;
-request.open('GET', 'http://pure-brushlands-81405.herokuapp.com/words', true)
-request.onload = function() {
-  // Begin accessing JSON data here
-  var data = JSON.parse(this.response)
-  if (request.status >= 200 && request.status < 400) {
-    var letterDiv = document.getElementById('input');
-    data.forEach(step => {
-      words += step.word + " ";
-    })
-    localStorage.setItem('currentLength', words.length);
-    for (var i = 0; i < words.length; i++) {
-      // random using lenth array because sometimes it can be more than 3
-      //var randomLetter = letters[Math.floor(Math.random() * letters.length)];
-      //Like this we won't get multiple spaces next to each other
-        stepString += words[i];
-        var letterSpan = document.createElement('span');
-        letterSpan.innerText = words[i];
-        letterSpan.id = "letter_" + i;
-        letterSpan.className = "letterStyle";
-        letterDiv.appendChild(letterSpan);
-        startLetter().classList.add("active");
+var letterDiv = document.getElementById('input');
+localStorage.setItem('currentLength', words.length);
+for (var i = 0; i < words.length; i++) {
+  stepString += words[i];
+  var letterSpan = document.createElement('span');
+  letterSpan.innerText = words[i];
+  letterSpan.id = "letter_" + i;
+  letterSpan.className = "letterStyle";
+  letterDiv.appendChild(letterSpan);
+  startLetter().classList.add("active");
 
-    }
+}
+//Get first Letter + color and hand
+var parentDOM = document.getElementById("keyboard__key-id");
+var handDOM = document.getElementById("hands");
+var keyboardLetters = parentDOM.getElementsByClassName("keyboard__key");
+var keyArray = [];
 
-    //Get first Letter + color and hand
-    var parentDOM = document.getElementById("keyboard__key-id");
-    var handDOM = document.getElementById("hands");
-    var keyboardLetters = parentDOM.getElementsByClassName("keyboard__key");
-    var keyArray = [];
-
-    for (var i = 0; i < keyboardLetters.length; i++) {
-      keyArray.push(keyboardLetters[i].textContent.trim());
-      if ((keyArray[i].charAt(0) === startLetter().innerText.toLowerCase() || (keyArray[i].charAt(1) === startLetter().innerText.toLowerCase() && keyArray[i].charAt(1) !== ""))) {
-        var firstKey = parentDOM.getElementsByClassName("keyboard__key")[i];
-        var handImg = handDOM.getElementsByClassName("key_hands")[0];
-        colorFirstLetter(firstKey);
-        colorFirstHand(handImg);
-        return true;
-      }
-    }
-  } else {
-    const errorMessage = document.createElement('marquee')
-    errorMessage.textContent = `Gah, it's not working!`
+for (var i = 0; i < keyboardLetters.length; i++) {
+  keyArray.push(keyboardLetters[i].textContent.trim());
+  if ((keyArray[i].charAt(0) === startLetter().innerText.toLowerCase() || (keyArray[i].charAt(1) === startLetter().innerText.toLowerCase() && keyArray[i].charAt(1) !== ""))) {
+    var firstKey = parentDOM.getElementsByClassName("keyboard__key")[i];
+    var handImg = handDOM.getElementsByClassName("key_hands")[0];
+    colorFirstLetter(firstKey);
+    colorFirstHand(handImg);
+    //return true;
   }
 }
-
-request.send();
