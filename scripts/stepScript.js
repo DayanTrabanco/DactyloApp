@@ -237,9 +237,11 @@ request.onload = function() {
   var data = JSON.parse(this.response)
   if (request.status >= 200 && request.status < 400) {
     var letterDiv = document.getElementById('input');
+    debugger;
     data.forEach(step => {
       letters.push(step.letter);
     })
+    localStorage.setItem('currentLength', 200);
     for (var i = 0; i < 200; i++) {
       // random using lenth array because sometimes it can be more than 3
       var randomLetter = letters[Math.floor(Math.random() * letters.length)];

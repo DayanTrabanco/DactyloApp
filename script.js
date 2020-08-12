@@ -1,12 +1,12 @@
 async function getData() {
-  const carsDataReq = await fetch('http://pure-brushlands-81405.herokuapp.com/scores/user/admin');
-  const carsData = await carsDataReq.json();
+  const gameDataReq = await fetch('http://pure-brushlands-81405.herokuapp.com/scores/user/' +  window.localStorage.getItem('username'));
+  const gameData = await gameDataReq.json();
   debugger;
-  const cleaned = carsData.map(car => ({
-      score: car.score,
-      timeNeeded: car.timeNeeded,
+  const cleaned = gameData.map(game => ({
+      score: game.score,
+      createdOn: Date.parse(game.createdOn),
     }))
-    .filter(car => (car.score != null));
+    .filter(game => (game.score != null));
 
   return cleaned;
 }
@@ -15,26 +15,13 @@ async function run() {
   // Load and plot the original input data that we are going to train on.
   const data = await getData();
   const values = data.map(d => ({
-    x: d.timeNeeded,
+    x: d.createdOn,
     y: d.score,
   }));
-
-  tfvis.render.scatterplot({
-    name: 'timeNeeded v score'
-  }, {
-    values
-  }, {
-    xLabel: 'timeNeeded',
-    yLabel: 'score',
-    height: 300
-  });
 
   // More code will be added below
   // Create the model
   const model = createModel();
-  tfvis.show.modelSummary({
-    name: 'Model Summary'
-  }, model);
 
   // Convert the data to a form we can use for training.
 const tensorData = convertToTensor(data);
@@ -79,7 +66,7 @@ function convertToTensor(data) {
 
     // Step 2. Convert data to Tensor
     const inputs = data.map(d => d.score)
-    const labels = data.map(d => d.timeNeeded);
+    const labels = data.map(d => d.createdOn);
 
     const inputTensor = tf.tensor2d(inputs, [inputs.length, 1]);
     const labelTensor = tf.tensor2d(labels, [labels.length, 1]);
@@ -113,19 +100,7 @@ async function trainModel(model, inputs, labels) {
     metrics: ['mse'],
   });
 
-  const batchSize = 32;
-  const epochs = 50;
 
-  return await model.fit(inputs, labels, {
-    batchSize,
-    epochs,
-    shuffle: true,
-    callbacks: tfvis.show.fitCallbacks(
-      { name: 'Training Performance' },
-      ['loss', 'mse'],
-      { height: 200, callbacks: ['onEpochEnd'] }
-    )
-  });
 }
 
 function testModel(model, inputData, normalizationData) {
@@ -157,17 +132,49 @@ function testModel(model, inputData, normalizationData) {
   });
 
   const originalPoints = inputData.map(d => ({
-    x: d.score, y: d.timeNeeded,
+    x: d.score, y: d.createdOn,
   }));
 
+  // get AI score to determine the level of the last step
+  // We have 4 levels of difficulty of words
+  var score = predictedPoints[50].x;
+  console.log(score);
+  var level = 1;
+  switch (true) {
+    case (score <= 5000):
+      level = 1;
+      break;
+    case (score > 5000 && score <= 10000):
+      level = 2;
+      break;
+    case (score > 10000 && score <= 20000):
+      level = 3;
+      break;
+    case (score > 20000):
+      level = 4;
+      break;
+    default: level = 1;
+    break;
+  }
+  console.log(level)
+  var request = new XMLHttpRequest()
+  request.open('GET', 'http://pure-brushlands-81405.herokuapp.com/words/both/' + level +',EN', true)
+  request.onload = function() {
+    // Begin accessing JSON data here
+    var data = JSON.parse(this.response)
+    if (request.status >= 200 && request.status < 400) {
+      data.forEach(words => {
 
-  tfvis.render.scatterplot(
-    {name: 'Model Predictions vs Original Data'},
-    {values: [originalPoints, predictedPoints], series: ['original', 'predicted']},
-    {
-      xLabel: 'score',
-      yLabel: 'timeNeeded',
-      height: 300
+        //if sysDate === Date AI
+          const letterWord = document.createElement('p')
+          letterWord.textContent = words.word
+          console.log(words.word)
+
+        })
+    } else {
+      //
     }
-  );
+  }
+  request.send()
+
 }

@@ -25,12 +25,18 @@ request.onload = function() {
     })
 
     $('.card').click(function(e) {
-      window.location = 'step.html';
+
+      if(e.originalEvent.path[1].innerText.split(" ")[1].replace(/[^0-9]+/g, "") > 0) {
+        window.location = 'step.html';
+        localStorage.setItem('step', e.originalEvent.path[1].innerText.split(" ")[1].replace(/[^0-9]+/g, ""));
+      } else {
+        window.location = 'final.html';
+        localStorage.setItem('step', "Final");
+      }
       //oude manier
       //localStorage.setItem('step' , e.originalEvent.path[1].id);
-
       //nieuwe manier gebaseerd op text van card
-      localStorage.setItem('step', e.originalEvent.path[1].innerText.split(" ")[1].replace(/[^0-9]+/g, ""));
+      //localStorage.setItem('step', e.originalEvent.path[1].innerText.split(" ")[1].replace(/[^0-9]+/g, ""));
     });
 
     $('.leaderboard-btn').click(function(e) {
