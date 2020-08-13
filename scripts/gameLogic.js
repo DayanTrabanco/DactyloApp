@@ -1,7 +1,6 @@
 //globals that will be used onKeyClicked
 var correct = 0;
 var errors = 0;
-debugger;
 var sec = 0;
 var oneIsEnough = 0;
 var currentLength = localStorage.getItem("currentLength");
@@ -23,7 +22,6 @@ function timer() {
 }
 
 function currentSpan() {
-  debugger;
   return stepString.length - currentLength;
 }
 

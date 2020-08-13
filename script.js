@@ -1,7 +1,6 @@
 async function getData() {
   const gameDataReq = await fetch('http://pure-brushlands-81405.herokuapp.com/scores/user/' +  window.localStorage.getItem('username'));
   const gameData = await gameDataReq.json();
-  debugger;
   const cleaned = gameData.map(game => ({
       score: game.score,
       createdOn: Date.parse(game.createdOn),
@@ -15,8 +14,8 @@ async function run() {
   // Load and plot the original input data that we are going to train on.
   const data = await getData();
   const values = data.map(d => ({
-    x: d.createdOn,
-    y: d.score,
+    x: d.score,
+    y: d.createdOn,
   }));
 
   // More code will be added below
@@ -65,8 +64,8 @@ function convertToTensor(data) {
     tf.util.shuffle(data);
 
     // Step 2. Convert data to Tensor
-    const inputs = data.map(d => d.score)
-    const labels = data.map(d => d.createdOn);
+    const inputs = data.map(d => d.createdOn)
+    const labels = data.map(d => d.score);
 
     const inputTensor = tf.tensor2d(inputs, [inputs.length, 1]);
     const labelTensor = tf.tensor2d(labels, [labels.length, 1]);
@@ -111,8 +110,8 @@ function testModel(model, inputData, normalizationData) {
   // that we did earlier.
   const [xs, preds] = tf.tidy(() => {
 
-    const xs = tf.linspace(0, 1, 100);
-    const preds = model.predict(xs.reshape([100, 1]));
+    const xs = tf.linspace(0, 1, 500);
+    const preds = model.predict(xs.reshape([500, 1]));
 
     const unNormXs = xs
       .mul(inputMax.sub(inputMin))
@@ -132,13 +131,16 @@ function testModel(model, inputData, normalizationData) {
   });
 
   const originalPoints = inputData.map(d => ({
-    x: d.score, y: d.createdOn,
+    x: d.createdOn, y: d.score,
   }));
 
   // get AI score to determine the level of the last step
   // We have 4 levels of difficulty of words
-  var score = predictedPoints[50].x;
+  debugger;
+  //take last predictions. it is always the date of today
+  var score = predictedPoints[499].y;
   console.log(score);
+  score = Math.abs(score)
   var level = 1;
   switch (true) {
     case (score <= 5000):

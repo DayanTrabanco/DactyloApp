@@ -236,7 +236,6 @@ var words = words.join().replace(/[ ]*,[ ]*|[ ]+/g, ' ');;
 
 //We put the letters in a string so we can just use it for checking the char before
 var stepString = [""];
-debugger;
 var letterDiv = document.getElementById('input');
 localStorage.setItem('currentLength', words.length);
 for (var i = 0; i < words.length; i++) {
