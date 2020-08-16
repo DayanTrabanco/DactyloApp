@@ -96,7 +96,7 @@ html {
 .Input {
   padding: 0 !important;
   position: relative;
-  width: 80% !important;
+  width: 90% !important;
 }
 
 .Input-text {
@@ -106,7 +106,7 @@ html {
   color: inherit;
   width: 100%;
   font-family: inherit;
-  font-size: 2rem;
+  font-size: var(--inputFontSize);;
   font-weight: inherit;
   line-height: var(--inputLineHeight);
   border: none;
@@ -260,8 +260,8 @@ span.letterStyle {
     display: inline-block;
     width: 27px;
     height: 55px;
-    margin-bottom: -25px;
-    font-size: 30px;
+    margin-bottom: -17px;
+    font-size: 35px;
     margin-right: 2px;
 }
 

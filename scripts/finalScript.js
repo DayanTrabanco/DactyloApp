@@ -229,9 +229,9 @@ document.getElementById("stepName").innerHTML = "Step" + " " + currentStep + "("
 
 var words = window.localStorage.getItem('listOfWords').split(",");
 
-// Choose 30 random words
+// Choose 20 random words of the predicted category
 const shuffled = words.sort(() => 0.5 - Math.random());
-words = shuffled.slice(0, 25);
+words = shuffled.slice(0, 20);
 
 var words = words.join().replace(/[ ]*,[ ]*|[ ]+/g, ' ');;
 

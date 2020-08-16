@@ -275,7 +275,7 @@ function keyBoard() {
     if (i >= keyboardLetters.length - 1) {
       oneIsEnough = 1;
     }
-    //Check which letter it will be next to show the right color and hand 
+    //Check which letter it will be next to show the right color and hand
     if (nextSpan() && (keyArray[i].charAt(0) === nextLetter().toLowerCase() || (keyArray[i].charAt(1) === nextLetter().toLowerCase() && keyArray[i].charAt(1) !== ""))) {
       var handImg = handDOM.getElementsByClassName("key_hands")[0];
       var getKey = parentDOM.getElementsByClassName("keyboard__key")[i];
@@ -320,15 +320,20 @@ function keyClicked(e) {
     span.style.color = "darkred";
     span.style.border.bottom = "1px solid Red";
   }
-  //calculate the score
+  //Calculate the score
   if (currentLength < 1) {
     var highscore = (correct - errors) * 100 / (sec / 60);
     var wpm = (200 / 5) / (sec / 60)
     score.innerText = Math.round(highscore);
     error.innerText = errors;
     time.innerText = sec + " seconds";
-    wordPerMin.innerText =  Math.round(wpm);
+    wordPerMin.innerText = Math.round(wpm);
     $('#scoreBoard').modal("show");
+    //When final need to change name so it corresponds to the get of the leaderboard
+    //The one received here is step final(n)
+    if (stepname.includes("Final") === true) {
+      stepname = "Final";
+    }
     //if user is connected it will add his score to the database
     if (localStorage.getItem("user") !== "") {
       var params = {

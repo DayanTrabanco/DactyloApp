@@ -1,5 +1,5 @@
 async function getData() {
-  const gameDataReq = await fetch('http://pure-brushlands-81405.herokuapp.com/scores/user/' +  window.localStorage.getItem('username'));
+  const gameDataReq = await fetch('http://pure-brushlands-81405.herokuapp.com/scores/user/' + window.localStorage.getItem('username'));
   const gameData = await gameDataReq.json();
   const cleaned = gameData.map(game => ({
       score: game.score,
@@ -18,19 +18,19 @@ async function run() {
     y: d.createdOn,
   }));
 
-  // More code will be added below
-  // Create the model
   const model = createModel();
 
   // Convert the data to a form we can use for training.
-const tensorData = convertToTensor(data);
-const {inputs, labels} = tensorData;
+  const tensorData = convertToTensor(data);
+  const {
+    inputs,
+    labels
+  } = tensorData;
 
-testModel(model, data, tensorData);
+  testModel(model, data, tensorData);
 
-// Train the model
-await trainModel(model, inputs, labels);
-console.log('Done Training');
+  // Train the model
+  await trainModel(model, inputs, labels);
 }
 
 document.addEventListener('DOMContentLoaded', run);
@@ -56,14 +56,12 @@ function createModel() {
 }
 
 function convertToTensor(data) {
-  // Wrapping these calculations in a tidy will dispose any
-  // intermediate tensors.
-
+  // Wrapping these calculations in a tidy will dispose any intermediate tensors.
   return tf.tidy(() => {
-    // Step 1. Shuffle the data
+    // Shuffle the data
     tf.util.shuffle(data);
 
-    // Step 2. Convert data to Tensor
+    //Convert data to Tensor
     const inputs = data.map(d => d.createdOn)
     const labels = data.map(d => d.score);
 
@@ -103,7 +101,12 @@ async function trainModel(model, inputs, labels) {
 }
 
 function testModel(model, inputData, normalizationData) {
-  const {inputMax, inputMin, labelMin, labelMax} = normalizationData;
+  const {
+    inputMax,
+    inputMin,
+    labelMin,
+    labelMax
+  } = normalizationData;
 
   // Generate predictions for a uniform range of numbers between 0 and 1;
   // We un-normalize the data by doing the inverse of the min-max scaling
@@ -127,19 +130,21 @@ function testModel(model, inputData, normalizationData) {
 
 
   const predictedPoints = Array.from(xs).map((val, i) => {
-    return {x: val, y: preds[i]}
+    return {
+      x: val,
+      y: preds[i]
+    }
   });
 
   const originalPoints = inputData.map(d => ({
-    x: d.createdOn, y: d.score,
+    x: d.createdOn,
+    y: d.score,
   }));
 
   // get AI score to determine the level of the last step
   // We have 4 levels of difficulty of words
-  debugger;
   //take last predictions. it is always the date of today
   var score = predictedPoints[499].y;
-  console.log(score);
   score = Math.abs(score)
   var level = 1;
   switch (true) {
@@ -155,28 +160,26 @@ function testModel(model, inputData, normalizationData) {
     case (score > 20000):
       level = 4;
       break;
-    default: level = 1;
-    break;
+    default:
+      level = 1;
+      break;
   }
   var listOfWords = [""];
-  console.log(level)
+  //Based on predicted level we get a list of words
   var request = new XMLHttpRequest()
-  request.open('GET', 'http://pure-brushlands-81405.herokuapp.com/words/both/' + level +',EN', true)
+  request.open('GET', 'http://pure-brushlands-81405.herokuapp.com/words/both/' + level + ',EN', true)
   request.onload = function() {
     // Begin accessing JSON data here
     var data = JSON.parse(this.response)
     if (request.status >= 200 && request.status < 400) {
       data.forEach(words => {
-
-        //if sysDate === Date AI
-          const letterWord = document.createElement('p')
-          letterWord.textContent = words.word
-          console.log(words.word)
-          listOfWords.push(words.word);
-
-        })
+        const letterWord = document.createElement('p')
+        letterWord.textContent = words.word
+        listOfWords.push(words.word);
+      })
     } else {
-      //
+      const errorMessage = document.createElement('marquee')
+      errorMessage.textContent = `Gah, it's not working!`
     }
     //Wil be used in final step
     window.localStorage.setItem('listOfWords', listOfWords);
