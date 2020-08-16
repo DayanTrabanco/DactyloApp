@@ -221,16 +221,17 @@ function colorFirstHand(e) {
 }
 
 var currentStep = localStorage.getItem('step');
+var level = localStorage.getItem('level');
 const app = document.getElementById('root')
 const container = document.createElement('div')
 container.setAttribute('class', 'container')
-document.getElementById("stepName").innerHTML = "Step" + " " + currentStep;
+document.getElementById("stepName").innerHTML = "Step" + " " + currentStep + "(" + level + ")" ;
 
 var words = window.localStorage.getItem('listOfWords').split(",");
 
 // Choose 30 random words
 const shuffled = words.sort(() => 0.5 - Math.random());
-words = shuffled.slice(0, 30);
+words = shuffled.slice(0, 25);
 
 var words = words.join().replace(/[ ]*,[ ]*|[ ]+/g, ' ');;
 

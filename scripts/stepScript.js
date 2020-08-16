@@ -5,7 +5,7 @@ $(document).ready(function() {
 function startLetter() {
   return document.getElementById("letter_0");
 }
-
+//Based on the char it will put a color on the key
 function colorFirstLetter(e) {
   var parentDOM = document.getElementById("keyboard__key-id");
   var capsLeft = parentDOM.getElementsByClassName("caps_left")[0];
@@ -112,7 +112,7 @@ function colorFirstLetter(e) {
   }
 }
 
-
+//based on the letter the right finger will have an highlight
 function colorFirstHand(e) {
   switch (startLetter().innerText) {
     case 'f':

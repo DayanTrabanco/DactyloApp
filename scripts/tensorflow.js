@@ -178,7 +178,9 @@ function testModel(model, inputData, normalizationData) {
     } else {
       //
     }
+    //Wil be used in final step
     window.localStorage.setItem('listOfWords', listOfWords);
+    window.localStorage.setItem('level', level);
   }
 
   request.send()

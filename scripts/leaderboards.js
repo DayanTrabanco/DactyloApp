@@ -51,8 +51,8 @@ function showLeaderboard(e) {
   var step = document.getElementById("steps").value;
   var option = document.getElementById("options").value;
   var tableLength = tbl.rows.length;
-  debugger;
   var oldTr = document.getElementById("tr0");
+  //if table is already generated, it will remove it to have place for a new one
   if (oldTr !== undefined && oldTr !== null) {
     for(var i = 0; i < tableLength - 1; i++) {
       var trId = "tr"+i;
@@ -61,7 +61,7 @@ function showLeaderboard(e) {
     }
 
   }
-  //leaderboard step 1
+  //Show a table of top 10 scores
   var request = new XMLHttpRequest()
   if (document.getElementById("options").value === "All") {
     request.open('GET', 'http://pure-brushlands-81405.herokuapp.com/scores/top/' + step, true);
@@ -73,6 +73,7 @@ function showLeaderboard(e) {
     // Begin accessing JSON data here
     var data = JSON.parse(this.response)
     if (request.status >= 200 && request.status < 400) {
+      //it will generate table rows 
       data.forEach(score => {
         var tr = document.createElement('tr');
         tr.id = "tr" + i++;

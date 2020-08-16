@@ -4,6 +4,7 @@ $(document).ready(function() {
   });
 });
 
+//Md5 will be used to encrypt the password
 function register() {
   var username = document.getElementById("usernameReg").value;
   var password = document.getElementById("passwordReg").value;
@@ -28,7 +29,7 @@ function register() {
       request2.onload = function() {
         var data = JSON.parse(this.response);
         if (request2.status >= 200 && request2.status < 400) {
-          //we keep the user to know who is connected (and like that we can use it in scoreBoard)
+          //we keep the user to know who is connected (and like that we can use it in the scoreboard)
           localStorage.setItem("user", data.username);
           document.getElementById("loginBtn").style.display = 'none';
           document.getElementById("logoutBtn").style.display = 'block';
@@ -36,7 +37,6 @@ function register() {
           alert("Not right combination");
           const errorMessage = document.createElement('marquee')
           errorMessage.textContent = `Gah, it's not working!`
-          //app.appendChild(errorMessage)
         }
       }
       request2.send();

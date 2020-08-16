@@ -40,7 +40,7 @@ function nextLetter() {
 function nextSymbol() {
   return nextSpan().innerText;
 }
-
+//Based on the char it will put a color on the key
 function colorLetter(e) {
   var parentDOM = document.getElementById("keyboard__key-id");
   var capsLeft = parentDOM.getElementsByClassName("caps_left")[0];
@@ -151,11 +151,10 @@ function colorLetter(e) {
   }
 }
 
+//Based on the letter the right finger will have an highlight
 function colorHand(e) {
-
   var test = nextLetter();
   switch (nextLetter()) {
-
     // Left index finger
     case 'f':
     case 'g':
@@ -276,7 +275,7 @@ function keyBoard() {
     if (i >= keyboardLetters.length - 1) {
       oneIsEnough = 1;
     }
-
+    //Check which letter it will be next to show the right color and hand 
     if (nextSpan() && (keyArray[i].charAt(0) === nextLetter().toLowerCase() || (keyArray[i].charAt(1) === nextLetter().toLowerCase() && keyArray[i].charAt(1) !== ""))) {
       var handImg = handDOM.getElementsByClassName("key_hands")[0];
       var getKey = parentDOM.getElementsByClassName("keyboard__key")[i];
@@ -311,7 +310,6 @@ function keyClicked(e) {
     if (nextSpan) {
       nextSpan.classList.add("active");
     }
-
     //Style span
     span.style.background = "#e7fbd3";
     span.style.color = "#0e630e";
@@ -322,6 +320,7 @@ function keyClicked(e) {
     span.style.color = "darkred";
     span.style.border.bottom = "1px solid Red";
   }
+  //calculate the score
   if (currentLength < 1) {
     var highscore = (correct - errors) * 100 / (sec / 60);
     var wpm = (200 / 5) / (sec / 60)
@@ -329,10 +328,8 @@ function keyClicked(e) {
     error.innerText = errors;
     time.innerText = sec + " seconds";
     wordPerMin.innerText =  Math.round(wpm);
-
     $('#scoreBoard').modal("show");
-    //window.location.href = "home.html";
-
+    //if user is connected it will add his score to the database
     if (localStorage.getItem("user") !== "") {
       var params = {
         "totalChars": 200,
@@ -357,7 +354,7 @@ function keyClicked(e) {
       }
       request.send(JSON.stringify(params));
     }
-
+    // when closing the score screen it will go back to the steps list
     $("#scoreBoard").on("hidden.bs.modal", function() {
       window.location.href = "home.html";
     });

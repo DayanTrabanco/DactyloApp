@@ -24,8 +24,9 @@ request.onload = function() {
       card.appendChild(p)
     })
 
+    //put click event on the cards
+    //on click go to the step
     $('.card').click(function(e) {
-
       if(e.originalEvent.path[1].innerText.split(" ")[1].replace(/[^0-9]+/g, "") > 0) {
         window.location = 'step.html';
         localStorage.setItem('step', e.originalEvent.path[1].innerText.split(" ")[1].replace(/[^0-9]+/g, ""));
@@ -33,10 +34,6 @@ request.onload = function() {
         window.location = 'final.html';
         localStorage.setItem('step', "Final");
       }
-      //oude manier
-      //localStorage.setItem('step' , e.originalEvent.path[1].id);
-      //nieuwe manier gebaseerd op text van card
-      //localStorage.setItem('step', e.originalEvent.path[1].innerText.split(" ")[1].replace(/[^0-9]+/g, ""));
     });
 
     $('.leaderboard-btn').click(function(e) {
